@@ -1,0 +1,34 @@
+.tela_jogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    margin: 0 auto;
+
+    height: 100vh;
+}
+
+.tela_jogo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 auto;
+    width: 90%;
+    height: 25%;
+}
+
+@media screen and (min-width: 720px) {
+    .tela_jogo-container {
+        height: 20%;
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .tela_jogo-container {
+        flex-direction: row;
+        height: 10%;
+    }
+}

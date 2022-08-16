@@ -1,1 +1,43 @@
+/* Reste e Variaveis */
+@import url(./abstract/_reset.css);
+@import url(./abstract/_variaveis.css);
 
+/* Icons do Rodape */
+@import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css');
+
+/* Compnentes do projeto */
+@import url(./components/cabecalho.css);
+@import url(./components/botao.css);
+@import url(./components/inicio.css);
+@import url(./components/configuracao.css);
+@import url(./components/jogo.css);
+@import url(./components/rodape.css);
+
+body {
+    background: var(--ligthBlue-100);
+    font-weight: var(--baixo);
+    font-size: 62.5%;
+
+    margin: 0 auto;
+    max-width: 375px;
+    max-height: 667px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 720px) {
+    body {
+        max-width: 768px;
+        max-height: 1024px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        max-width: 1440px;
+        max-height: 1024px;
+    }
+}
