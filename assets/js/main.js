@@ -1,13 +1,23 @@
-const iniciar = document.querySelector('.botao__jogo')
-const adicionaPalavra = document.querySelector('.botao__configuracao')
 
-iniciar.addEventListener('click', function(e){
-    e.target.parentElement.style.display = 'none'
-    document.querySelector('.tela_jogo').style.display = 'flex'
-})
+//sessão inicio
+document.querySelector('.botao__jogo').addEventListener('click', telaDeJogo(e, '.tela_jogo'))
+document.querySelector('.botao__configuracao').addEventListener('click', telaAdicionaPalavra(e, '.tela__configuracao'))
 
-adicionaPalavra.addEventListener('click', function(e){
-    e.target.parentElement.style.display = 'none'
-    document.querySelector('.tela__configuracao').style.display = 'flex'
-})
+//sessão da configuração
+document.querySelector('.botao__configuracao--jogue').addEventListener('click', telaDeJogo(e, '.tela_jogo'))
+document.querySelector('.botao__configuracao--voltar').addEventListener('click', telaAdicionaPalavra(e, '.tela__inicio'))
+
+// sessão do Jogo
+//document.querySelector('.bota__jogo--jogar').addEventListener('click', telaDeJogo(e, '.tela_jogo'))
+document.querySelector('.bota__jogo--voltar').addEventListener('click', telaAdicionaPalavra(e, '.tela__inicio'))
+
+function telaDeJogo(evento, classe){
+    evento.target.parentElement.style.display = 'none'
+    document.querySelector(classe).style.display = 'flex'
+}
+
+function telaAdicionaPalavra(evento, classe){
+    evento.target.parentElement.style.display = 'none'
+    document.querySelector(classe).style.display = 'flex'
+}
 
