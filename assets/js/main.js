@@ -2,12 +2,17 @@ const palavras = ['O pequeno principe', 'A Guerra dos Tronos',
 'As Brumas de Avalon', 'As Cronicas de Artur', 'O Espachin de Carvão', 
 'A Batalha do Apocalipse', 'Santo Guerreiro', 'Filhos do Éden'
 ]
+
+const palavra = sortearPalavra(palavras)
 const tentativas = 0;
 
 //sessão inicio
 document.querySelector('.botao__jogo').addEventListener('click', e => {
     e.target.parentElement.style.display = 'none'
     document.querySelector('.tela_jogo').style.display = 'flex'
+
+    const palavraSecreta = palavras[palavra]
+    console.log(palavraSecreta)
 })
 document.querySelector('.botao__configuracao').addEventListener('click', e => {
     e.target.parentElement.style.display = 'none'
@@ -27,7 +32,6 @@ document.querySelector('.botao__configuracao--voltar').addEventListener('click',
 // sessão do Jogo
 
 document.querySelector('.bota__jogo--jogar').addEventListener('click', e => {
-    const palavra = sortearPalavra(palavras)
     const palavraSecreta = palavras[palavra]
 
     console.log(palavraSecreta)
@@ -40,5 +44,5 @@ document.querySelector('.bota__jogo--voltar').addEventListener('click', e => {
 
 
 function sortearPalavra(array){
-    return Math.round(Math.random() * array.length)
+    return Math.round(Math.random() * array.length - 1)
 }
