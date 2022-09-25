@@ -65,7 +65,7 @@ function ocultaPalavra(palavra){
         `
     }).join('')
 
-    telaDaForca.innerHTML = `
+    telaDaForca.innerHTML += `
         <div>
             ${palavraOculta}
         </div>
