@@ -1,37 +1,38 @@
 
 //sessão inicio
 document.querySelector('.botao__jogo').addEventListener('click', e => {
-    telaDeJogo(e, '.tela_jogo')
+    evento.target.parentElement.style.display = 'none'
+    document.querySelector('.tela_jogo').style.display = 'flex'
+    document.querySelector('.tela_jogo-container').style.display = 'flex'
 })
+
 document.querySelector('.botao__configuracao').addEventListener('click', e => {
-    telaAdicionaPalavra(e, '.tela__configuracao')
+    evento.target.parentElement.style.display = 'none'
+    document.querySelector('.tela__configuracao').style.display = 'flex'
+    document.querySelector('.tela__configuracao-container').style.display = 'flex'
 })
 
 //sessão da configuração
 document.querySelector('.botao__configuracao--jogar').addEventListener('click', e => {
-    telaDeJogo(e, '.tela_jogo')
+    evento.target.parentElement.style.display = 'none'
+    document.querySelector('.tela_jogo').style.display = 'flex'
+    document.querySelector('.tela_jogo-container').style.display = 'flex'
 })
+
 document.querySelector('.botao__configuracao--voltar').addEventListener('click', e => {
-    telaAdicionaPalavra(e, '.tela__inicio')
+    evento.target.parentElement.style.display = 'none'
+    document.querySelector('.tela__inicio').style.display = 'flex'
 })
 
 // sessão do Jogo
 /*
 document.querySelector('.bota__jogo--jogar').addEventListener('click', e => {
-    telaDeJogo(e, '.tela_jogo')
+    console.log(e)
 })
 */
 document.querySelector('.bota__jogo--voltar').addEventListener('click', e => {
-    telaAdicionaPalavra(e, '.tela__inicio')
+    evento.target.parentElement.style.display = 'none'
+    document.querySelector('.tela__inicio').style.display = 'flex'
+
 })
-
-function telaDeJogo(evento, classe){
-    evento.target.parentElement.style.display = 'none'
-    document.querySelector(classe).style.display = 'flex'
-}
-
-function telaAdicionaPalavra(evento, classe){
-    evento.target.parentElement.style.display = 'none'
-    document.querySelector(classe).style.display = 'flex'
-}
 
