@@ -17,7 +17,7 @@ document.querySelector('.botao__configuracao').addEventListener('click', e => {
 //sessão da configuração
 document.querySelector('.botao__configuracao--jogar').addEventListener('click', e => {
     e.target.parentElement.style.display = 'none'
-    console.log(e.target.parentElement)
+    console.log(e.target.querySelector('.tela__configuracao'))
     document.querySelector('.tela_jogo').style.display = 'flex'
     document.querySelector('.tela_jogo-container').style.display = 'flex'
 })
