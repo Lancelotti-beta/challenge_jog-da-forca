@@ -8,7 +8,7 @@ document.querySelector('.botao__configuracao').addEventListener('click', e => {
 })
 
 //sessão da configuração
-document.querySelector('.botao__configuracao--jogue').addEventListener('click', e => {
+document.querySelector('.botao__configuracao--jogar').addEventListener('click', e => {
     telaDeJogo(e, '.tela_jogo')
 })
 document.querySelector('.botao__configuracao--voltar').addEventListener('click', e => {
