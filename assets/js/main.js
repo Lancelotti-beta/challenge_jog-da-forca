@@ -69,3 +69,57 @@ function ocultaPalavra(palavra){
         ${palavraOculta}
     `
 }
+
+function mostraPalavra(palavras, str) {  
+    const letra = document.querySelectorAll('span')
+    console.log(letra)
+
+    palavras.split('').forEach((palavra, i, arrayPalavra) => { 
+        console.log(palavra, i, arrayPalavra)
+
+        if(arrayPalavra[i] === str){
+            letra[i].innerHTML = arrayPalavra[i] = str
+        } 
+
+    })
+
+}
+
+function verificaBotao(botao, palavra) {
+    palavra = palavra.toLowerCase() 
+    if(tentativas < 7){   
+        if(palavra.includes(botao)){
+            document.querySelector(`button[value="${botao}"]`).style.background = "#5E8272"
+            document.querySelector(`button[value="${botao}"]`).style.color = "white"
+            
+            mostraPalavra(palavra, botao)
+        } else {
+            document.querySelector(`button[value="${botao}"]`).style.background = "#7E3D57"
+            document.querySelector(`button[value="${botao}"]`).style.color = "white"
+            
+            tentativas++
+        }
+    } else {
+      document.querySelector('armazenamento').innerHTML = `<h2> Fim de Jogo </h2>`
+    }    
+}
+
+function validaCliqueDoBotao(){
+    for (let i = 0; i < letras.length; i++) {
+        letras[i].addEventListener ('click', (e) => {
+            verificaBotao(e.target.value, palavraSecreta)
+        })
+    }
+
+    window.addEventListener('keydown', function(event) {
+       
+        let tecla = event.key
+
+        const chave = alfabeto.includes(tecla)
+        if(!chave){
+            return
+        }
+
+        verificaBotao(tecla, palavraSecreta)
+    })  
+}
