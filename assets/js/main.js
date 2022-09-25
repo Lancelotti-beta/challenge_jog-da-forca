@@ -48,7 +48,7 @@ document.querySelector('.bota__jogo--voltar').addEventListener('click', e => {
 
 
 function sortearPalavra(array){
-    return Math.round(Math.random() * array.length - 1)
+    return Math.floor(Math.random() * array.length)
 }
 
 
