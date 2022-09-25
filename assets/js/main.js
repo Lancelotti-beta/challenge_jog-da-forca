@@ -3,7 +3,7 @@ const palavras = ['O pequeno principe', 'A Guerra dos Tronos',
 'A Batalha do Apocalipse', 'Santo Guerreiro', 'Filhos do Éden'
 ]
 
-const palavraSecreta = ''
+let palavraSecreta = ''
 const tentativas = 0
 
 //sessão inicio
