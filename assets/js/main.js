@@ -3,15 +3,16 @@ const palavras = ['O pequeno principe', 'A Guerra dos Tronos',
 'A Batalha do Apocalipse', 'Santo Guerreiro', 'Filhos do Éden'
 ]
 
-const palavra = sortearPalavra(palavras)
-const tentativas = 0;
+const palavraSecreta = ''
+const tentativas = 0
 
 //sessão inicio
 document.querySelector('.botao__jogo').addEventListener('click', e => {
     e.target.parentElement.style.display = 'none'
     document.querySelector('.tela_jogo').style.display = 'flex'
 
-    const palavraSecreta = palavras[palavra]
+    const palavraInicial = sortearPalavra(palavras)
+    palavraSecreta = palavras[palavraInicial]
     console.log(palavraSecreta)
 })
 document.querySelector('.botao__configuracao').addEventListener('click', e => {
@@ -32,8 +33,8 @@ document.querySelector('.botao__configuracao--voltar').addEventListener('click',
 // sessão do Jogo
 
 document.querySelector('.bota__jogo--jogar').addEventListener('click', e => {
-    const palavraSecreta = palavras[palavra]
-
+    const palavra = sortearPalavra(palavras)
+    palavraSecreta = palavras[palavra]
     console.log(palavraSecreta)
 })
 
