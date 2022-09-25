@@ -54,10 +54,14 @@ function sortearPalavra(array){
 
 function ocultaPalavra(palavra){
     const telaDaForca = document.querySelector('.tela_jogo')
-
-    const palavraOculta = palavra.split('').map(palavra,  letras => {
+    const palavraOculta = palavra.split('').map((letras, i) => {
         return `
-            <span>${letras}</span>
+            <span>${letras.replace(palavra.charAt(i), letra => {
+                if(letra.indexOf(' ') >= 0){
+                    return ' &nbsp '
+                }
+                return ' _ '
+            })}</span>
         `
     }).join('')
 
