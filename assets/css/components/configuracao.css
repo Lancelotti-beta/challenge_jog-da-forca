@@ -8,6 +8,7 @@
     margin: 0 auto;
 
     height: 100vh;
+    display: none;
 }
 
 .tela__configuracao-container {
