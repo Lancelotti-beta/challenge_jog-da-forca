@@ -6,6 +6,8 @@ const palavras = ['O pequeno principe', 'A Guerra dos Tronos',
 let palavraSecreta = ''
 const tentativas = 0
 
+
+
 //sessão inicio
 document.querySelector('.botao__jogo').addEventListener('click', e => {
     e.target.parentElement.style.display = 'none'
@@ -13,7 +15,7 @@ document.querySelector('.botao__jogo').addEventListener('click', e => {
 
     const palavraInicial = sortearPalavra(palavras)
     palavraSecreta = palavras[palavraInicial]
-    console.log(palavraSecreta)
+    ocultaPalavra(palavraSecreta)
 })
 document.querySelector('.botao__configuracao').addEventListener('click', e => {
     e.target.parentElement.style.display = 'none'
@@ -35,7 +37,8 @@ document.querySelector('.botao__configuracao--voltar').addEventListener('click',
 document.querySelector('.bota__jogo--jogar').addEventListener('click', e => {
     const palavra = sortearPalavra(palavras)
     palavraSecreta = palavras[palavra]
-    console.log(palavraSecreta)
+
+    ocultaPalavra(palavraSecreta)
 })
 
 document.querySelector('.bota__jogo--voltar').addEventListener('click', e => {
@@ -46,4 +49,21 @@ document.querySelector('.bota__jogo--voltar').addEventListener('click', e => {
 
 function sortearPalavra(array){
     return Math.round(Math.random() * array.length - 1)
+}
+
+
+function ocultaPalavra(palavra){
+    const telaDaForca = document.querySelector('.tela_jogo')
+
+    const palavraOculta = palavra.split('').map(palavra,  letras => {
+        return `
+            <span>${letras}</span>
+        `
+    }).join('')
+
+    telaDaForca.innerHTML = `
+        <div>
+            ${palavraOculta}
+        </div>
+    `
 }
