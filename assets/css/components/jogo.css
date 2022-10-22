@@ -10,6 +10,13 @@
     display: none;
 }
 
+.tela__jogo-forca {
+    width: 90%;
+    max-width: 400px;
+    height: 75%;
+    max-height: 375px;
+}
+
 .tela__jogo-letras {
     text-align: center;
     text-transform: uppercase;

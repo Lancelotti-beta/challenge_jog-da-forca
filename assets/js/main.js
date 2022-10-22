@@ -80,7 +80,6 @@ function retiraCaracter(palavra) {
     let palavraSemCaracteres = ''
     palavra.split('').forEach(letra => {
         palavraSemCaracteres = palavra.replaceAll(/[áàãâéèêíìîóòõôñ]/g, (letra) => {
-            console.log('aqui')
             return caracterEspecial[letra]
         })
     })
@@ -125,13 +124,13 @@ function verificaBotao(botao, palavra) {
     palavra = palavra.toLowerCase() 
     if(tentativas < 7){   
         if(palavra.includes(botao)){
-            document.querySelector(`button[value="${botao}"]`).style.background = "#5E8272"
-            document.querySelector(`button[value="${botao}"]`).style.color = "white"
+            document.querySelector(`button[value="${botao}"]`).style.background = "#0a3871"
+            document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
             
             mostraPalavra(palavra, botao)
         } else {
-            document.querySelector(`button[value="${botao}"]`).style.background = "#7E3D57"
-            document.querySelector(`button[value="${botao}"]`).style.color = "white"
+            document.querySelector(`button[value="${botao}"]`).style.background = "#343a40"
+            document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
             
             tentativas++
         }
