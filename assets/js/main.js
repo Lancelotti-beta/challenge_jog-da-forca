@@ -1,22 +1,29 @@
+
 const palavras = ['O pequeno principe', 'A Guerra dos Tronos', 
 'As Brumas de Avalon', 'As Cronicas de Artur', 'O Espachin de Carvão', 
 'A Batalha do Apocalipse', 'Santo Guerreiro', 'Filhos do Éden'
 ]
 
-let palavraSecreta = ''
+const letras = document.querySelectorAll('[data-letra]')
 const tentativas = 0
+
+let palavra = ''
+let palavraSecreta = ''
 
 
 
 //sessão inicio
 document.querySelector('.botao__jogo').addEventListener('click', e => {
     e.target.parentElement.style.display = 'none'
-    document.querySelector('.tela_jogo').style.display = 'flex'
+    document.querySelector('.tela__jogo').style.display = 'flex'
 
-    const palavraInicial = sortearPalavra(palavras)
-    palavraSecreta = palavras[palavraInicial]
+    palavra = sortearPalavra(palavras)
+    palavraSecreta = palavras[palavra]
+
     ocultaPalavra(palavraSecreta)
+    validaCliqueDoBotao()
 })
+
 document.querySelector('.botao__configuracao').addEventListener('click', e => {
     e.target.parentElement.style.display = 'none'
     document.querySelector('.tela__configuracao').style.display = 'flex'
@@ -25,8 +32,16 @@ document.querySelector('.botao__configuracao').addEventListener('click', e => {
 //sessão da configuração
 document.querySelector('.botao__configuracao--jogar').addEventListener('click', e => {
     document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none'
-    document.querySelector('.tela_jogo').style.display = 'flex'
+    document.querySelector('.tela__jogo').style.display = 'flex'
+
+    palavra = sortearPalavra(palavras)
+    palavraSecreta = palavras[palavra]
+
+    ocultaPalavra(palavraSecreta)
+
+    validaCliqueDoBotao()
 })
+
 document.querySelector('.botao__configuracao--voltar').addEventListener('click', e => {
     document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none'
     document.querySelector('.tela__inicio').style.display = 'flex'
@@ -35,14 +50,15 @@ document.querySelector('.botao__configuracao--voltar').addEventListener('click',
 // sessão do Jogo
 
 document.querySelector('.bota__jogo--jogar').addEventListener('click', e => {
-    const palavra = sortearPalavra(palavras)
+    palavra = sortearPalavra(palavras)
     palavraSecreta = palavras[palavra]
 
     ocultaPalavra(palavraSecreta)
+    validaCliqueDoBotao()
 })
 
 document.querySelector('.bota__jogo--voltar').addEventListener('click', e => {
-    document.querySelector('.tela_jogo-container').parentElement.style.display = 'none'
+    document.querySelector('.tela__jogo-container').parentElement.style.display = 'none'
     document.querySelector('.tela__inicio').style.display = 'flex'
 })
 
@@ -51,9 +67,8 @@ function sortearPalavra(array){
     return Math.floor(Math.random() * array.length)
 }
 
-
 function ocultaPalavra(palavra){
-    const localDaPalavra = document.querySelector('.tela_jogo-letras')
+    const localDaPalavra = document.querySelector('.tela__jogo-letras')
     const palavraOculta = palavra.split('').map((letras, i) => {
         return `
             <span>${letras.replace(palavra.charAt(i), letra => {
@@ -105,11 +120,11 @@ function verificaBotao(botao, palavra) {
 }
 
 function validaCliqueDoBotao(){
-    for (let i = 0; i < letras.length; i++) {
-        letras[i].addEventListener ('click', (e) => {
+    letras.forEach(letra =>{
+        letra.addEventListener ('click', (e) => {
             verificaBotao(e.target.value, palavraSecreta)
         })
-    }
+    })
 
     window.addEventListener('keydown', function(event) {
        
