@@ -1,13 +1,22 @@
 
 const palavras = ['O pequeno principe', 'A Guerra dos Tronos', 
-'As Brumas de Avalon', 'As Cronicas de Artur', 'O Espachin de Carvão', 
+'As Brumas de Avalon', 'As Cronicas de Artur', 'O Espadachin de Carvão', 
 'A Batalha do Apocalipse', 'Santo Guerreiro', 'Filhos do Éden'
 ]
 
+const caracterEspecial = {
+    á: 'a', à: 'a', ã: 'a', â: 'a',
+    é: 'e', è: 'e', ê: 'e',
+    í: 'i', ì: 'i', î: 'i',
+    ó: 'o', ò: 'o', õ: 'o', ô: 'o',
+    ñ: 'n'
+}
+
 const letras = document.querySelectorAll('[data-letra]')
+const alfabeto = 'abcdefghijklmnopqrstuvwxyz'
 const tentativas = 0
 
-let palavra = ''
+let indice
 let palavraSecreta = ''
 
 
@@ -17,8 +26,8 @@ document.querySelector('.botao__jogo').addEventListener('click', e => {
     e.target.parentElement.style.display = 'none'
     document.querySelector('.tela__jogo').style.display = 'flex'
 
-    palavra = sortearPalavra(palavras)
-    palavraSecreta = palavras[palavra]
+    indice = sortearPalavra(palavras)
+    palavraSecreta = retiraCaracter(palavras[indice])
 
     ocultaPalavra(palavraSecreta)
     validaCliqueDoBotao()
@@ -34,8 +43,8 @@ document.querySelector('.botao__configuracao--jogar').addEventListener('click', 
     document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none'
     document.querySelector('.tela__jogo').style.display = 'flex'
 
-    palavra = sortearPalavra(palavras)
-    palavraSecreta = palavras[palavra]
+    indice = sortearPalavra(palavras)
+    palavraSecreta = retiraCaracter(palavras[indice])
 
     ocultaPalavra(palavraSecreta)
 
@@ -50,8 +59,8 @@ document.querySelector('.botao__configuracao--voltar').addEventListener('click',
 // sessão do Jogo
 
 document.querySelector('.bota__jogo--jogar').addEventListener('click', e => {
-    palavra = sortearPalavra(palavras)
-    palavraSecreta = palavras[palavra]
+    indice = sortearPalavra(palavras)
+    palavraSecreta = retiraCaracter(palavras[indice])
 
     ocultaPalavra(palavraSecreta)
     validaCliqueDoBotao()
@@ -67,11 +76,23 @@ function sortearPalavra(array){
     return Math.floor(Math.random() * array.length)
 }
 
+function retiraCaracter(palavra) {
+    let palavraSemCaracteres = ''
+    palavra.split('').forEach(letra => {
+        palavraSemCaracteres = palavra.replaceAll(/[áàãâéèêíìîóòõôñ]/g, (letra) => {
+            console.log('aqui')
+            return caracterEspecial[letra]
+        })
+    })
+
+    return palavraSemCaracteres
+}
+
 function ocultaPalavra(palavra){
     const localDaPalavra = document.querySelector('.tela__jogo-letras')
     const palavraOculta = palavra.split('').map((letras, i) => {
         return `
-            <span>${letras.replace(palavra.charAt(i), letra => {
+            <span class="letra--secreta">${letras.replace(palavra.charAt(i), letra => {
                 if(letra.indexOf(' ') >= 0){
                     return ' &nbsp '
                 }
