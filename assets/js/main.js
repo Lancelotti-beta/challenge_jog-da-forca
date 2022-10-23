@@ -18,7 +18,7 @@ const popUp = document.querySelector('dialog')
 const alfabeto = 'abcdefghijklmnopqrstuvwxyz'
 
 let indice
-let tentativas
+let tentativas = 0
 let palavraSecreta = ''
 
 
@@ -61,11 +61,7 @@ document.querySelector('.botao__configuracao--voltar').addEventListener('click',
 // sessão do Jogo
 
 document.querySelector('.bota__jogo--jogar').addEventListener('click', e => {
-    indice = sortearPalavra(palavras)
-    palavraSecreta = retiraCaracter(palavras[indice])
-
-    ocultaPalavra(palavraSecreta)
-    validaCliqueDoBotao()
+    resetaJogo()
 })
 
 document.querySelector('.bota__jogo--voltar').addEventListener('click', e => {
@@ -76,19 +72,7 @@ document.querySelector('.bota__jogo--voltar').addEventListener('click', e => {
 //daiog - popUp caso percam 
 
 document.querySelector('.pop-up').addEventListener('click', function() {
-    //zerar Canvas
-
-    letras.forEach( botao => {
-        botao.style.background = "none"
-        botao.style.color = "#343a40"
-    })
-
-    indice = sortearPalavra(palavras)
-    palavraSecreta = retiraCaracter(palavras[indice])
-
-    ocultaPalavra(palavraSecreta)
-    validaCliqueDoBotao()
-
+    resetaJogo()
     popUp.close();
 })
 
@@ -141,21 +125,25 @@ function mostraPalavra(palavras, str) {
 
 function verificaBotao(botao, palavra) {
     palavra = palavra.toLowerCase() 
-    if(tentativas < 7){   
+    if(tentativas <= 7){   
         if(palavra.includes(botao)){
             document.querySelector(`button[value="${botao}"]`).style.background = "#0a3871"
             document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
-            
             mostraPalavra(palavra, botao)
+
         } else {
             document.querySelector(`button[value="${botao}"]`).style.background = "#343a40"
             document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
-            
             tentativas++
+
         }
-    } else {
-        popUp.showModal();
-    }    
+
+    }
+    
+    if(tentativas === 7) {
+        popUp.showModal()
+    }
+    
 }
 
 function validaCliqueDoBotao(){
@@ -178,4 +166,19 @@ function validaCliqueDoBotao(){
     })  
 }
 
+function resetaJogo() {
+    //zerar Canvas
 
+    letras.forEach( botao => {
+        botao.style.background = "none"
+        botao.style.color = "#343a40"
+    })
+
+    tentativas = 0
+
+    indice = sortearPalavra(palavras)
+    palavraSecreta = retiraCaracter(palavras[indice])
+
+    ocultaPalavra(palavraSecreta)
+    validaCliqueDoBotao()
+}

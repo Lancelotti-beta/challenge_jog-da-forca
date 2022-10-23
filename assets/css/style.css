@@ -11,6 +11,7 @@
 @import url(./components/inicio.css);
 @import url(./components/configuracao.css);
 @import url(./components/jogo.css);
+@import url(./components/mensagem.css);
 @import url(./components/rodape.css);
 
 body {
@@ -26,6 +27,13 @@ body {
 .container {
     width: 90%;
     margin: 0 auto;
+}
+
+.elementoAlinha-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (min-width: 720px) {
