@@ -6,10 +6,14 @@ const palavras = ['O pequeno principe', 'A Guerra dos Tronos',
 
 const caracterEspecial = {
     á: 'a', à: 'a', ã: 'a', â: 'a',
+    Á: 'A', À: 'A', Ã: 'A', Â: 'A',
     é: 'e', è: 'e', ê: 'e',
+    É: 'E', È: 'E', Ê: 'E',
     í: 'i', ì: 'i', î: 'i',
+    Í: 'I', Ì: 'I', Î: 'I',
     ó: 'o', ò: 'o', õ: 'o', ô: 'o',
-    ñ: 'n'
+    Ó: 'O', Ò: 'O', Õ: 'O', Ô: 'O',
+    ñ: 'n', Ñ: 'N'
 }
 
 const letras = document.querySelectorAll('[data-letra]')
@@ -82,9 +86,11 @@ function sortearPalavra(array){
 }
 
 function retiraCaracter(palavra) {
+    
+
     let palavraSemCaracteres = ''
     palavra.split('').forEach(letra => {
-        palavraSemCaracteres = palavra.replaceAll(/[áàãâéèêíìîóòõôñ]/g, (letra) => {
+        palavraSemCaracteres = palavra.replaceAll(/[áàãâÁÀÃÂéèêÉÈÊíìîÍÌÎóòõôÓÒÕÔñÑ]/g, (letra) => {
             return caracterEspecial[letra]
         })
     })
