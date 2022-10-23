@@ -1,7 +1,7 @@
 
 const palavras = ['O pequeno principe', 'A Guerra dos Tronos', 
 'As Brumas de Avalon', 'As Cronicas de Artur', 'O Espadachin de Carvão', 
-'A Batalha do Apocalipse', 'Santo Guerreiro', 'Filhos do Éden'
+'A Batalha do Apocalipse', 'Santo Guerreiro', 'Filhos do Éden', 'O setimo'
 ]
 
 const caracterEspecial = {
@@ -13,10 +13,12 @@ const caracterEspecial = {
 }
 
 const letras = document.querySelectorAll('[data-letra]')
+const popUp = document.querySelector('dialog')
+
 const alfabeto = 'abcdefghijklmnopqrstuvwxyz'
-const tentativas = 0
 
 let indice
+let tentativas
 let palavraSecreta = ''
 
 
@@ -71,6 +73,25 @@ document.querySelector('.bota__jogo--voltar').addEventListener('click', e => {
     document.querySelector('.tela__inicio').style.display = 'flex'
 })
 
+//daiog - popUp caso percam 
+
+document.querySelector('.pop-up').addEventListener('click', function() {
+    //zerar Canvas
+
+    letras.forEach( botao => {
+        botao.style.background = "none"
+        botao.style.color = "#343a40"
+    })
+
+    indice = sortearPalavra(palavras)
+    palavraSecreta = retiraCaracter(palavras[indice])
+
+    ocultaPalavra(palavraSecreta)
+    validaCliqueDoBotao()
+
+    popUp.close();
+})
+
 
 function sortearPalavra(array){
     return Math.floor(Math.random() * array.length)
@@ -107,7 +128,6 @@ function ocultaPalavra(palavra){
 
 function mostraPalavra(palavras, str) {  
     const letra = document.querySelectorAll('span')
-    console.log(letra)
 
     palavras.split('').forEach((palavra, i, arrayPalavra) => { 
         console.log(palavra, i, arrayPalavra)
@@ -117,7 +137,6 @@ function mostraPalavra(palavras, str) {
         } 
 
     })
-
 }
 
 function verificaBotao(botao, palavra) {
@@ -135,7 +154,7 @@ function verificaBotao(botao, palavra) {
             tentativas++
         }
     } else {
-      document.querySelector('armazenamento').innerHTML = `<h2> Fim de Jogo </h2>`
+        popUp.showModal();
     }    
 }
 
@@ -158,3 +177,5 @@ function validaCliqueDoBotao(){
         verificaBotao(tecla, palavraSecreta)
     })  
 }
+
+

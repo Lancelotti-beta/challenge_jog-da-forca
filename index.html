@@ -19,16 +19,16 @@
 
     <main class="container">
         <section class="tela__inicio">
-            <button class="botao botao__jogo">Começar Jogo</button>
-            <button class="botao botao__configuracao botao--alternativo">adicionar nova Palavra</button>
+            <button data-button="jogar" class="botao botao__jogo">Começar Jogo</button>
+            <button data-button="configura" class="botao botao__configuracao botao--alternativo">adicionar nova Palavra</button>
         </section>
 
         <section class="tela__configuracao">
             <textarea class="tela__configuracao-campo-texto" placeholder="Digite uma palavra ou frase"></textarea>
             <p>Máx. de 8 letras</p>
             <div class="tela__configuracao-container">
-                <button class="botao botao__configuracao--jogar">Salvar e começar</button>
-                <button class="botao botao__configuracao--voltar botao--alternativo">Cancelar</button>
+                <button data-button="salvar" class="botao botao__configuracao--jogar">Salvar e começar</button>
+                <button data-button="voltar" class="botao botao__configuracao--voltar botao--alternativo">Cancelar</button>
             </div>
         </section>
 
@@ -64,12 +64,19 @@
                 <button class="botao botao--letra" value="z" data-letra>Z</button>
             </div>
             <div class="tela__jogo-container">
-                <button class="botao bota__jogo--jogar">Novo Jogo</button>
-                <button class="botao bota__jogo--voltar botao__inicio botao--alternativo">Desistir</button>
+                <button data-button="jogarNovamente" class="botao bota__jogo--jogar">Novo Jogo</button>
+                <button data-button="desistir" class="botao bota__jogo--voltar botao__inicio botao--alternativo">Desistir</button>
             </div>
         </section>
 
     </main>
+
+    <dialog>
+        <h2>Fim de Jogo</h2>
+        <p>Não foi dessa vez . . .</p>
+
+        <button data-button="reiniciar" class="pop-up botao bota__jogo--jogar">Reiniciar</button>
+    </dialog>
 
     <footer class="rodape">
         <p class="rodape__texto">Copyright &copy;
