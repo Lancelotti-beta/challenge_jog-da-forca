@@ -45,5 +45,10 @@
     .botao--letra {
         width: 10%;
     }
+
+    .bota--reiniciar {
+        width: 45%;
+    }
+    
 }
 

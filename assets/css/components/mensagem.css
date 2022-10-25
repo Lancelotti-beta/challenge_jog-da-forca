@@ -13,7 +13,7 @@
 }
 
 .caixa--titulo {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: var(--alto);
     position: absolute;
     top: 15%;
@@ -22,10 +22,10 @@
 }
 
 .caixa--menssagem {
-    font-size: 1.75rem;
+    font-size: .875rem;
     font-weight: var(--baixo);
     position: absolute;
-    top: 25%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -25%);
 }
@@ -33,8 +33,29 @@
 .pop-up {
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: -50%;
     left: 0;
     right: 0;
     margin: auto;
 }
+
+@media screen and (min-width: 720px) {
+    .caixa--titulo {
+        font-size: 1.75rem;
+    }
+    
+    .caixa--menssagem {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .caixa--titulo {
+        font-size: 3rem;
+    }
+    
+    .caixa--menssagem {
+        font-size: 1.5rem;
+    }
+}
+

@@ -26,7 +26,6 @@ let tentativas = 0
 let palavraSecreta = ''
 
 
-
 //sessão inicio
 document.querySelector('.botao__jogo').addEventListener('click', e => {
     e.target.parentElement.style.display = 'none'
@@ -36,7 +35,6 @@ document.querySelector('.botao__jogo').addEventListener('click', e => {
     palavraSecreta = retiraCaracter(palavras[indice])
 
     ocultaPalavra(palavraSecreta)
-    validaCliqueDoBotao()
 })
 
 document.querySelector('.botao__configuracao').addEventListener('click', e => {
@@ -53,8 +51,6 @@ document.querySelector('.botao__configuracao--jogar').addEventListener('click', 
     palavraSecreta = retiraCaracter(palavras[indice])
 
     ocultaPalavra(palavraSecreta)
-
-    validaCliqueDoBotao()
 })
 
 document.querySelector('.botao__configuracao--voltar').addEventListener('click', e => {
@@ -71,13 +67,32 @@ document.querySelector('.bota__jogo--jogar').addEventListener('click', e => {
 document.querySelector('.bota__jogo--voltar').addEventListener('click', e => {
     document.querySelector('.tela__jogo-container').parentElement.style.display = 'none'
     document.querySelector('.tela__inicio').style.display = 'flex'
+    resetaJogo()
 })
 
 //daiog - popUp caso percam 
 
 document.querySelector('.pop-up').addEventListener('click', function() {
     resetaJogo()
-    popUp.close();
+    popUp.close()
+})
+
+letras.forEach(letra => {
+    letra.addEventListener ('click', (e) => {
+        verificaBotao(e.target.value, palavraSecreta)
+    })
+})
+
+window.addEventListener('keydown', function(event) {
+   
+    let tecla = event.key
+
+    const chave = alfabeto.includes(tecla)
+    if(!chave){
+        return
+    }
+
+    verificaBotao(tecla, palavraSecreta)
 })
 
 
@@ -130,49 +145,33 @@ function mostraPalavra(palavras, str) {
 }
 
 function verificaBotao(botao, palavra) {
-    palavra = palavra.toLowerCase() 
-    if(tentativas <= 7){   
-        if(palavra.includes(botao)){
-            document.querySelector(`button[value="${botao}"]`).style.background = "#0a3871"
-            document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
-            mostraPalavra(palavra, botao)
+    palavra = palavra.toLowerCase()
 
-        } else {
-            document.querySelector(`button[value="${botao}"]`).style.background = "#343a40"
-            document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
-            tentativas++
+    tentativas < 7 ? validaJogada(palavra, botao) : partidaPerdida()
 
-        }
-
-    }
     
-    if(tentativas === 7) {
-        popUp.showModal()
-    }
-    
+    console.log(tentativas)
 }
 
-function validaCliqueDoBotao(){
-    letras.forEach(letra =>{
-        letra.addEventListener ('click', (e) => {
-            verificaBotao(e.target.value, palavraSecreta)
-        })
-    })
+function validaJogada(palavra, botao) {
+    if(palavra.includes(botao)){
+        document.querySelector(`button[value="${botao}"]`).style.background = "#0a3871"
+        document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
+        mostraPalavra(palavra, botao)
+        return
+    }
 
-    window.addEventListener('keydown', function(event) {
-       
-        let tecla = event.key
-
-        const chave = alfabeto.includes(tecla)
-        if(!chave){
-            return
-        }
-
-        verificaBotao(tecla, palavraSecreta)
-    })  
+    tentativas++
+    document.querySelector(`button[value="${botao}"]`).style.background = "#343a40"
+    document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
 }
 
 function resetaJogo() {
+    tentativas = 0
+
+    indice = sortearPalavra(palavras)
+    palavraSecreta = retiraCaracter(palavras[indice])
+
     //zerar Canvas
 
     letras.forEach( botao => {
@@ -180,11 +179,14 @@ function resetaJogo() {
         botao.style.color = "#343a40"
     })
 
-    tentativas = 0
-
-    indice = sortearPalavra(palavras)
-    palavraSecreta = retiraCaracter(palavras[indice])
-
     ocultaPalavra(palavraSecreta)
-    validaCliqueDoBotao()
+    //validaCliqueDoBotao()
 }
+
+function partidaPerdida() {
+    popUp.querySelector(".caixa--titulo").textContent = "Fim de Jogo"
+    popUp.querySelector(".caixa--menssagem").textContent = "Não foi dessa vez . . ."
+    popUp.querySelector(".pop-up").textContent = "Reiniciar"
+    popUp.showModal()
+}
+
