@@ -1,12 +1,15 @@
-import { caracterEspecial } from "module";
+import { caracterEspecial } from "./caracter.js";
+import { palavras } from "./palavra.js";
 
+let indice
 let tentativas = 0
+let palavraSecreta = ''
 
-const sortearPalavra = (array) => {
+function sortearPalavra(array) {
     return Math.floor(Math.random() * array.length)
 }
 
-const retiraCaracter = (palavra) => {
+function retiraCaracter(palavra){
     let palavraSemCaracteres = ''
     palavra.split('').forEach(letra => {
         palavraSemCaracteres = palavra.replaceAll(/[áàãâÁÀÃÂéèêÉÈÊíìîÍÌÎóòõôÓÒÕÔñÑ]/g, (letra) => {
@@ -17,7 +20,7 @@ const retiraCaracter = (palavra) => {
     return palavraSemCaracteres
 }
 
-const ocultaPalavra = (palavra) => {
+function ocultaPalavra(palavra){
     const localDaPalavra = document.querySelector('.tela__jogo-letras')
     const palavraOculta = palavra.split('').map((letras, i) => {
         return `
@@ -35,7 +38,7 @@ const ocultaPalavra = (palavra) => {
     `
 }
 
-const mostraPalavra = (palavras, str) => {  
+function mostraPalavra(palavras, str){  
     const letra = document.querySelectorAll('span')
 
     palavras.split('').forEach((palavra, i, arrayPalavra) => { 
@@ -48,14 +51,14 @@ const mostraPalavra = (palavras, str) => {
     })
 }
 
-const verificaBotao = (botao, palavra, elemento) => {
+function verificaBotao(botao, palavra, elemento){
     palavra = palavra.toLowerCase()
 
     tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento)
     
 }
 
-const validaJogada = (palavra, botao) => {
+function validaJogada(palavra, botao){
     if(palavra.includes(botao)){
         document.querySelector(`button[value="${botao}"]`).style.background = "#0a3871"
         document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
@@ -68,7 +71,7 @@ const validaJogada = (palavra, botao) => {
     document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
 }
 
-const resetaJogo = () => {
+function resetaJogo(){
     tentativas = 0
 
     indice = sortearPalavra(palavras)
@@ -85,7 +88,7 @@ const resetaJogo = () => {
     //validaCliqueDoBotao()
 }
 
-const derrota = (elemento) => {
+function derrota(elemento){
     elemento.querySelector(".caixa--titulo").textContent = "Fim de Jogo"
     elemento.querySelector(".caixa--menssagem").textContent = "Não foi dessa vez . . ."
     elemento.querySelector(".pop-up").textContent = "Reiniciar"
@@ -93,6 +96,8 @@ const derrota = (elemento) => {
 }
 
 export {
+    indice,
+    palavraSecreta,
     sortearPalavra,
     retiraCaracter,
     ocultaPalavra,
