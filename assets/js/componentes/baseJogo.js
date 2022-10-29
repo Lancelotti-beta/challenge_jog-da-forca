@@ -1,8 +1,10 @@
 import { caracterEspecial } from "./caracter.js";
 import { palavras } from "./palavra.js";
 
+const letras = document.querySelectorAll('[data-letra]')
+
 let indice
-let tentativas = 0
+let tentativas = 1
 let palavraSecreta = ''
 
 function sortearPalavra(array) {
@@ -54,7 +56,7 @@ function mostraPalavra(palavras, str){
 function verificaBotao(botao, palavra, elemento){
     palavra = palavra.toLowerCase()
 
-    tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento)
+    tentativas <= 6 ? validaJogada(palavra, botao) : derrota(elemento)
     
 }
 
@@ -71,8 +73,15 @@ function validaJogada(palavra, botao){
     document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
 }
 
+function iniciaJogo() {
+    indice = sortearPalavra(palavras)
+    palavraSecreta = retiraCaracter(palavras[indice])
+
+    ocultaPalavra(palavraSecreta)
+}
+
 function resetaJogo(){
-    tentativas = 0
+    tentativas = 1
 
     indice = sortearPalavra(palavras)
     palavraSecreta = retiraCaracter(palavras[indice])
@@ -96,11 +105,9 @@ function derrota(elemento){
 }
 
 export {
-    indice,
+    letras,
     palavraSecreta,
-    sortearPalavra,
-    retiraCaracter,
-    ocultaPalavra,
+    iniciaJogo,
     verificaBotao,
     resetaJogo
 }
