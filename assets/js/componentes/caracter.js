@@ -1,3 +1,5 @@
+const alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+const regExp = /[áàãâÁÀÃÂéèêÉÈÊíìîÍÌÎóòõôÓÒÕÔñÑ]/g
 const caracterEspecial = {
     á: 'a', à: 'a', ã: 'a', â: 'a',
     Á: 'A', À: 'A', Ã: 'A', Â: 'A',
@@ -10,9 +12,9 @@ const caracterEspecial = {
     ñ: 'n', Ñ: 'N'
 }
 
-const alfabeto = 'abcdefghijklmnopqrstuvwxyz'
 
 export {
     caracterEspecial,
-    alfabeto
+    alfabeto,
+    regExp
 }

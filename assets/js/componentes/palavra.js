@@ -3,9 +3,11 @@ let palavras = ['O pequeno principe', 'A Guerra dos Tronos',
 'A Batalha do Apocalipse', 'Santo Guerreiro', 'Filhos do Éden', 'O setimo'
 ]
 
-let letrasClicadas = []
+let letrasErradas = []
+let letrasCorreta = []
 
 export {
     palavras,
-    letrasClicadas
+    letrasErradas,
+    letrasCorreta
 }

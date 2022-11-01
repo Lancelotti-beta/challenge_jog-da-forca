@@ -1,76 +1,46 @@
-﻿import { caracterEspecial } from "./caracter.js";
+﻿import { 
+    retiraCaracter,
+    mostraPalavra, 
+    ocultaPalavra 
+} from "./manipulaPalavra.js";
 import {
     palavras,
-    letrasClicadas
+    letrasErradas,
+    letrasCorreta
 } from "./palavra.js";
-
-const letras = document.querySelectorAll('[data-letra]')
 
 let indice
 let tentativas = 1
 let palavraSecreta = ''
 
+const letras = document.querySelectorAll('[data-letra]')
+
+
 function sortearPalavra(array) {
     return Math.floor(Math.random() * array.length)
 }
 
-function retiraCaracter(palavra){
-    let palavraSemCaracteres = ''
-    palavra.split('').forEach(letra => {
-        palavraSemCaracteres = palavra.replaceAll(/[áàãâÁÀÃÂéèêÉÈÊíìîÍÌÎóòõôÓÒÕÔñÑ]/g, (letra) => {
-            return caracterEspecial[letra]
-        })
-    })
-
-    return palavraSemCaracteres
-}
-
-function ocultaPalavra(palavra){
-    const localDaPalavra = document.querySelector('.tela__jogo-letras')
-    const palavraOculta = palavra.split('').map((letras, i) => {
-        return `
-            <span class="letra--secreta">${letras.replace(palavra.charAt(i), letra => {
-                if(letra.indexOf(' ') >= 0){
-                    return ' &nbsp '
-                }
-                return ' _ '
-            })}</span>
-        `
-    }).join('')
-
-    localDaPalavra.innerHTML = `
-        ${palavraOculta}
-    `
-}
-
-function mostraPalavra(palavras, str){
-    const letra = document.querySelectorAll('.letra--secreta')
-    palavras.split('').forEach((palavra, i, arrayPalavra) => { 
-
-        if(arrayPalavra[i] === str){
-            letra[i].innerHTML = str
-        }
-    })
-
-}
-
 function verificaBotao(botao, palavra, elemento){
     palavra = palavra.toLowerCase()
-    
-    //palavra === letra.innerText ? vitoria(elemento) :
 
-    tentativas <= 6 ? validaJogada(palavra, botao) : derrota(elemento)
+    //palavra ===  ? vitoria(elemento) :
+    
+    if(letrasErradas.includes(botao) || letrasCorreta.includes(botao)) return
+
+    tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento)
 }
 
 function validaJogada(palavra, botao){
     if(palavra.includes(botao)){
         document.querySelector(`button[value="${botao}"]`).style.background = "#0a3871"
         document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
+        letrasCorreta.push(botao)
         mostraPalavra(palavra, botao)
         return
     }
-
+    
     tentativas++
+    letrasErradas.push(botao)
     document.querySelector(`button[value="${botao}"]`).style.background = "#343a40"
     document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
 }
@@ -78,7 +48,6 @@ function validaJogada(palavra, botao){
 function iniciaJogo() {
     indice = sortearPalavra(palavras)
     palavraSecreta = retiraCaracter(palavras[indice])
-    console.log(`Palavra:\n${palavraSecreta}`)
     ocultaPalavra(palavraSecreta)
 }
 
@@ -96,7 +65,6 @@ function resetaJogo(){
     })
 
     ocultaPalavra(palavraSecreta)
-    //validaCliqueDoBotao()
 }
 
 
