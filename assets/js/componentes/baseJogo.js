@@ -1,5 +1,8 @@
-import { caracterEspecial } from "./caracter.js";
-import { palavras } from "./palavra.js";
+﻿import { caracterEspecial } from "./caracter.js";
+import {
+    palavras,
+    letrasClicadas
+} from "./palavra.js";
 
 const letras = document.querySelectorAll('[data-letra]')
 
@@ -40,24 +43,23 @@ function ocultaPalavra(palavra){
     `
 }
 
-function mostraPalavra(palavras, str){  
-    const letra = document.querySelectorAll('span')
-
+function mostraPalavra(palavras, str){
+    const letra = document.querySelectorAll('.letra--secreta')
     palavras.split('').forEach((palavra, i, arrayPalavra) => { 
-        console.log(palavra, i, arrayPalavra)
 
         if(arrayPalavra[i] === str){
-            letra[i].innerHTML = arrayPalavra[i] = str
-        } 
-
+            letra[i].innerHTML = str
+        }
     })
+
 }
 
 function verificaBotao(botao, palavra, elemento){
     palavra = palavra.toLowerCase()
+    
+    //palavra === letra.innerText ? vitoria(elemento) :
 
     tentativas <= 6 ? validaJogada(palavra, botao) : derrota(elemento)
-    
 }
 
 function validaJogada(palavra, botao){
@@ -76,7 +78,7 @@ function validaJogada(palavra, botao){
 function iniciaJogo() {
     indice = sortearPalavra(palavras)
     palavraSecreta = retiraCaracter(palavras[indice])
-
+    console.log(`Palavra:\n${palavraSecreta}`)
     ocultaPalavra(palavraSecreta)
 }
 
@@ -95,6 +97,14 @@ function resetaJogo(){
 
     ocultaPalavra(palavraSecreta)
     //validaCliqueDoBotao()
+}
+
+
+function vitoria(elemento){
+    elemento.querySelector(".caixa--titulo").textContent = "Você venceu!"
+    elemento.querySelector(".caixa--menssagem").textContent = "Parabéns! Você descobriu a palavra secreta ^^"
+    elemento.querySelector(".pop-up").textContent = "Reiniciar"
+    elemento.showModal()
 }
 
 function derrota(elemento){
