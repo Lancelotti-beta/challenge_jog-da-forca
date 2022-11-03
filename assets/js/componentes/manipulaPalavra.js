@@ -43,8 +43,22 @@ function mostraPalavra(palavras, str){
 
 }
 
+function organizaPalavraSecreta(palavra, palavraCorretaDesordenada) {
+    let palavraOrganizada = ''
+    let trasfromaPlavraEmArray = palavra.split('')
+
+    palavraOrganizada = trasfromaPlavraEmArray.map((palavras) => {
+        return palavraCorretaDesordenada.find((letra) => {
+            return letra === palavras
+        })
+    }).join('')
+
+    return palavraOrganizada
+}
+
 export {
     retiraCaracter,
     ocultaPalavra,
-    mostraPalavra
+    mostraPalavra,
+    organizaPalavraSecreta
 }

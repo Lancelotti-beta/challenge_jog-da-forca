@@ -1,13 +1,11 @@
 ﻿import { 
     retiraCaracter,
-    mostraPalavra, 
     ocultaPalavra 
 } from "./manipulaPalavra.js";
 import {
     palavras,
-    letrasErradas,
-    letrasCorreta
 } from "./palavra.js";
+
 
 let indice
 let tentativas = 1
@@ -18,31 +16,6 @@ const letras = document.querySelectorAll('[data-letra]')
 
 function sortearPalavra(array) {
     return Math.floor(Math.random() * array.length)
-}
-
-function verificaBotao(botao, palavra, elemento){
-    palavra = palavra.toLowerCase()
-
-    //palavra ===  ? vitoria(elemento) :
-    
-    if(letrasErradas.includes(botao) || letrasCorreta.includes(botao)) return
-
-    tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento)
-}
-
-function validaJogada(palavra, botao){
-    if(palavra.includes(botao)){
-        document.querySelector(`button[value="${botao}"]`).style.background = "#0a3871"
-        document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
-        letrasCorreta.push(botao)
-        mostraPalavra(palavra, botao)
-        return
-    }
-    
-    tentativas++
-    letrasErradas.push(botao)
-    document.querySelector(`button[value="${botao}"]`).style.background = "#343a40"
-    document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
 }
 
 function iniciaJogo() {
@@ -85,7 +58,7 @@ function derrota(elemento){
 export {
     letras,
     palavraSecreta,
+    tentativas,
     iniciaJogo,
-    verificaBotao,
     resetaJogo
 }

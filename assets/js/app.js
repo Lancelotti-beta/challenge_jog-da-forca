@@ -1,8 +1,8 @@
 import { alfabeto } from "./componentes/caracter.js"
+import { verificaBotao } from "./componentes/validaLetra.js"
 import { 
     palavraSecreta,
     letras,
-    verificaBotao 
 } from "./componentes/baseJogo.js"
 import { 
     ativaBotao, 
@@ -25,7 +25,6 @@ letras.forEach(letra => {
 
 window.addEventListener('keydown', function(event) {
     let tecla = event.key
-
     const chave = alfabeto.includes(tecla)
     if(!chave){
         return
