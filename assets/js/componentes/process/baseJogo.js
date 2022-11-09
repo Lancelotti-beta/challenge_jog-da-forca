@@ -1,14 +1,12 @@
-﻿import { 
+﻿import { palavras } from "../utils/palavra.js";
+import { tentativas } from "../validation/validaLetra.js";
+import { 
     retiraCaracter,
     ocultaPalavra 
 } from "./manipulaPalavra.js";
-import {
-    palavras,
-} from "./palavra.js";
 
 
-let indice
-let tentativas = 1
+let indice = ''
 let palavraSecreta = ''
 
 const letras = document.querySelectorAll('[data-letra]')
@@ -58,7 +56,8 @@ function derrota(elemento){
 export {
     letras,
     palavraSecreta,
-    tentativas,
+    vitoria,
+    derrota,
     iniciaJogo,
     resetaJogo
 }

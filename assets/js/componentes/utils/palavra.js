@@ -4,6 +4,7 @@ let palavras = ['O pequeno principe', 'A Guerra dos Tronos',
 ]
 
 let letrasErradas = []
+
 let letrasCorreta = []
 
 export {

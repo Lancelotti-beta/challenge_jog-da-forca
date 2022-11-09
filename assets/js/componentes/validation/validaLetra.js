@@ -1,19 +1,23 @@
 import {
     letrasErradas,
     letrasCorreta
-} from "./palavra.js"
+} from "../utils/palavra.js"
 import { 
     mostraPalavra,
     organizaPalavraSecreta
-} from "./manipulaPalavra.js"
-import { tentativas } from "./baseJogo.js"
+} from "../process/manipulaPalavra.js"
+import {
+    vitoria,
+    derrota
+} from "../process/baseJogo.js"
 
 let palavraDescoberta = ''
+let tentativas = 1
 
 function verificaBotao(botao, palavra, elemento){
     palavra = palavra.toLowerCase()
 
-    //palavra === palavraDescoberta ? vitoria(elemento) :
+    palavra === palavraDescoberta && vitoria(elemento)
     
     if(letrasErradas.includes(botao) || letrasCorreta.includes(botao)) return
 
@@ -39,6 +43,7 @@ function validaJogada(palavra, botao){
 }
 
 export {
+    tentativas,
     verificaBotao,
     validaJogada
 }

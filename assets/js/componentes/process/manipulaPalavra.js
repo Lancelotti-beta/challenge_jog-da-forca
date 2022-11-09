@@ -1,7 +1,7 @@
 import {
     regExp,
     caracterEspecial
-} from "./caracter.js"
+} from "../utils/caracter.js"
 
 function retiraCaracter(palavra){
     let palavraSemCaracteres = ''

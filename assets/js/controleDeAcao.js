@@ -1,9 +1,17 @@
 import {
     iniciaJogo,
     resetaJogo
-} from "./componentes/baseJogo.js";
+} from "./componentes/process/baseJogo.js";
 
 const popUp = document.querySelector('dialog')
+
+function ativaBotao(botao) {
+    let botaoSelecionado = botao.dataset.button
+
+    if(buttons[botaoSelecionado]){
+        buttons[botaoSelecionado](botao)
+    }
+}
 
 const buttons =  {
     jogar: e => jogar(e),
@@ -15,13 +23,6 @@ const buttons =  {
     reiniciar: fecharDialog
 }
 
-function ativaBotao(botao) {
-    let botaoSelecionado = botao.dataset.button
-
-    if(buttons[botaoSelecionado]){
-        buttons[botaoSelecionado](botao)
-    }
-}
 
 //sessão inicio
 function jogar(e) {
