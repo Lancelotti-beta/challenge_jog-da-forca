@@ -1,7 +1,7 @@
 import {
     iniciaJogo,
     resetaJogo
-} from "./componentes/process/baseJogo.js";
+} from "../process/baseJogo.js";
 
 const popUp = document.querySelector('dialog')
 

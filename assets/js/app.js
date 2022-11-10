@@ -7,7 +7,7 @@ import {
 import { 
     ativaBotao, 
     popUp 
-} from "./controleDeAcao.js"
+} from "./componentes/controllers/controleDeAcao.js"
 
 const botoes = document.querySelectorAll('button')
 
