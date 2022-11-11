@@ -7,7 +7,7 @@ let letrasErradas = []
 
 let letrasCorreta = []
 
-export {
+export default {
     palavras,
     letrasErradas,
     letrasCorreta

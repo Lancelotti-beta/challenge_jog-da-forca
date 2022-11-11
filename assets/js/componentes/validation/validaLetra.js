@@ -11,13 +11,15 @@ import {
     derrota
 } from "../process/baseJogo.js"
 
-let palavraDescoberta = ''
 let tentativas = 1
 
 function verificaBotao(botao, palavra, elemento){
     palavra = palavra.toLowerCase()
 
-    palavra === palavraDescoberta && vitoria(elemento)
+    let palavraDescoberta = ''
+    let palavraSecretaSemEspaco = palavra.replace(/\s/g, '')
+
+    palavraSecretaSemEspaco === palavraDescoberta && vitoria(elemento)
     
     if(letrasErradas.includes(botao) || letrasCorreta.includes(botao)) return
 
@@ -42,7 +44,8 @@ function validaJogada(palavra, botao){
     document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
 }
 
-export {
+
+export default {
     tentativas,
     verificaBotao,
     validaJogada

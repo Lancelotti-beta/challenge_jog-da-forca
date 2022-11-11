@@ -65,7 +65,7 @@ function fecharDialog() {
     popUp.close()
 }
 
-export {
+export default {
     ativaBotao,
     popUp
 }

@@ -1,9 +1,9 @@
-import { alfabeto } from "./componentes/caracter.js"
-import { verificaBotao } from "./componentes/validaLetra.js"
+import { alfabeto } from "./componentes/utils/caracter.js"
+import { verificaBotao } from "./componentes/validation/validaLetra.js"
 import { 
     palavraSecreta,
     letras,
-} from "./componentes/baseJogo.js"
+} from "./componentes/process/baseJogo.js"
 import { 
     ativaBotao, 
     popUp 

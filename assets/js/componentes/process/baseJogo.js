@@ -1,10 +1,9 @@
-﻿import { palavras } from "../utils/palavra.js";
-import { tentativas } from "../validation/validaLetra.js";
+﻿import tentativas from "../validation/validaLetra.js";
+import { palavras } from "../utils/palavra.js";
 import { 
     retiraCaracter,
     ocultaPalavra 
 } from "./manipulaPalavra.js";
-
 
 let indice = ''
 let palavraSecreta = ''
@@ -53,7 +52,7 @@ function derrota(elemento){
     elemento.showModal()
 }
 
-export {
+export default {
     letras,
     palavraSecreta,
     vitoria,
