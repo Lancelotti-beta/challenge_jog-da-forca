@@ -15,7 +15,7 @@ const caracterEspecial = {
 }
 
 
-export default {
+export {
     caracterEspecial,
     alfabeto,
     regExp

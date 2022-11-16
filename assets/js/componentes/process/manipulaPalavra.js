@@ -56,7 +56,7 @@ function organizaPalavraSecreta(palavra, palavraCorretaDesordenada) {
     return palavraOrganizada
 }
 
-export default {
+export {
     retiraCaracter,
     ocultaPalavra,
     mostraPalavra,

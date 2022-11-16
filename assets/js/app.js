@@ -1,19 +1,13 @@
 import { alfabeto } from "./componentes/utils/caracter.js"
 import { verificaBotao } from "./componentes/validation/validaLetra.js"
-import { 
-    palavraSecreta,
-    letras,
-} from "./componentes/process/baseJogo.js"
-import { 
-    ativaBotao, 
-    popUp 
-} from "./componentes/controllers/controleDeAcao.js"
+import { letras, palavraSecreta, popUp } from "./componentes/utils/valoresIniciais.js"
+import ativaBotaos from "./componentes/controllers/controleDeAcao.js"
 
 const botoes = document.querySelectorAll('button')
 
 botoes.forEach(botao => {
     botao.addEventListener('click', event => {
-        ativaBotao(event.target)
+        ativaBotaos(event.target)
     })
 })
 

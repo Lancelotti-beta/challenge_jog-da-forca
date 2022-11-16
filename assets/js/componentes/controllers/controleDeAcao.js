@@ -1,11 +1,7 @@
-import {
-    iniciaJogo,
-    resetaJogo
-} from "../process/baseJogo.js";
+import { popUp } from "../utils/valoresIniciais.js";
+import { iniciaJogo, resetaJogo }from "../process/baseJogo.js";
 
-const popUp = document.querySelector('dialog')
-
-function ativaBotao(botao) {
+export default function ativaBotaos(botao) {
     let botaoSelecionado = botao.dataset.button
 
     if(buttons[botaoSelecionado]){
@@ -65,7 +61,4 @@ function fecharDialog() {
     popUp.close()
 }
 
-export default {
-    ativaBotao,
-    popUp
-}
+

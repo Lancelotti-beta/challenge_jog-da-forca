@@ -1,3 +1,4 @@
+import tentativas  from "../utils/valoresIniciais.js"
 import {
     letrasErradas,
     letrasCorreta
@@ -11,9 +12,7 @@ import {
     derrota
 } from "../process/baseJogo.js"
 
-let tentativas = 1
-
-function verificaBotao(botao, palavra, elemento){
+export function verificaBotao(botao, palavra, elemento){
     palavra = palavra.toLowerCase()
 
     let palavraDescoberta = ''
@@ -45,8 +44,3 @@ function validaJogada(palavra, botao){
 }
 
 
-export default {
-    tentativas,
-    verificaBotao,
-    validaJogada
-}

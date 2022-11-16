@@ -1,14 +1,13 @@
-﻿import tentativas from "../validation/validaLetra.js";
-import { palavras } from "../utils/palavra.js";
+﻿import { palavras } from "../utils/palavra.js";
+import tentativas, { 
+    letras,
+    indice,
+    palavraSecreta 
+} from "../utils/valoresIniciais.js";
 import { 
     retiraCaracter,
     ocultaPalavra 
 } from "./manipulaPalavra.js";
-
-let indice = ''
-let palavraSecreta = ''
-
-const letras = document.querySelectorAll('[data-letra]')
 
 
 function sortearPalavra(array) {
@@ -50,13 +49,4 @@ function derrota(elemento){
     elemento.querySelector(".caixa--menssagem").textContent = "Não foi dessa vez . . ."
     elemento.querySelector(".pop-up").textContent = "Reiniciar"
     elemento.showModal()
-}
-
-export default {
-    letras,
-    palavraSecreta,
-    vitoria,
-    derrota,
-    iniciaJogo,
-    resetaJogo
 }
