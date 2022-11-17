@@ -1,24 +1,27 @@
 ﻿import { palavras } from "../utils/palavra.js";
-import tentativas, { 
+import {
+    tentativas,
     letras,
     indice,
-    palavraSecreta 
+    palavraSecreta
 } from "../utils/valoresIniciais.js";
-import retiraCaracter from "./manipulaPalavra.js";
-import ocultaPalavra from "./manipulaPalavra.js";
+import {
+    retiraCaracter,
+    ocultaPalavra
+} from "./manipulaPalavra.js";
 
 
 function sortearPalavra(array) {
     return Math.floor(Math.random() * array.length)
 }
 
-const iniciaJogo = () => {
+export const iniciaJogo = () => {
     indice = sortearPalavra(palavras)
     palavraSecreta = retiraCaracter(palavras[indice])
     ocultaPalavra(palavraSecreta)
 }
 
-const resetaJogo = () => {
+export const resetaJogo = () => {
     tentativas = 1
 
     indice = sortearPalavra(palavras)
@@ -35,7 +38,3 @@ const resetaJogo = () => {
 }
 
 
-export default {
-    iniciaJogo,
-    resetaJogo
-}

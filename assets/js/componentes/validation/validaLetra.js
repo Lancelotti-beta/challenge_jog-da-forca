@@ -3,8 +3,10 @@ import {
     letrasErradas,
     letrasCorreta
 } from "../utils/palavra.js"
-import mostraPalavra from "../process/manipulaPalavra.js"
-import organizaPalavraSecreta from "../process/manipulaPalavra.js"
+import {
+    mostraPalavra,
+    organizaPalavraSecreta
+} from "../process/manipulaPalavra.js"
 
 export function verificaBotao(botao, palavra, elemento){
     palavra = palavra.toLowerCase()

@@ -1,6 +1,8 @@
 import { popUp } from "../utils/valoresIniciais.js";
-import iniciaJogo from "../process/acoesDoJogo.js";
-import resetaJogo from "../process/acoesDoJogo.js";
+import {
+    iniciaJogo,
+    resetaJogo
+} from "../process/acoesDoJogo.js";
 
 export default function ativaBotaos(botao) {
     let botaoSelecionado = botao.dataset.button
