@@ -1,16 +1,10 @@
-import tentativas  from "../utils/valoresIniciais.js"
+import { tentativas }  from "../utils/valoresIniciais.js"
 import {
     letrasErradas,
     letrasCorreta
 } from "../utils/palavra.js"
-import { 
-    mostraPalavra,
-    organizaPalavraSecreta
-} from "../process/manipulaPalavra.js"
-import {
-    vitoria,
-    derrota
-} from "../process/baseJogo.js"
+import mostraPalavra from "../process/manipulaPalavra.js"
+import organizaPalavraSecreta from "../process/manipulaPalavra.js"
 
 export function verificaBotao(botao, palavra, elemento){
     palavra = palavra.toLowerCase()
@@ -43,4 +37,16 @@ function validaJogada(palavra, botao){
     document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
 }
 
+function vitoria(elemento){
+    elemento.querySelector(".caixa--titulo").textContent = "Você venceu!"
+    elemento.querySelector(".caixa--menssagem").textContent = "Parabéns! Você descobriu a palavra secreta ^^"
+    elemento.querySelector(".pop-up").textContent = "Reiniciar"
+    elemento.showModal()
+}
 
+function derrota(elemento){
+    elemento.querySelector(".caixa--titulo").textContent = "Fim de Jogo"
+    elemento.querySelector(".caixa--menssagem").textContent = "Não foi dessa vez . . ."
+    elemento.querySelector(".pop-up").textContent = "Reiniciar"
+    elemento.showModal()
+}

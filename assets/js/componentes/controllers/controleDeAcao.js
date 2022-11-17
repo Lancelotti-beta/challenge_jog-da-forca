@@ -1,5 +1,6 @@
 import { popUp } from "../utils/valoresIniciais.js";
-import { iniciaJogo, resetaJogo }from "../process/baseJogo.js";
+import iniciaJogo from "../process/acoesDoJogo.js";
+import resetaJogo from "../process/acoesDoJogo.js";
 
 export default function ativaBotaos(botao) {
     let botaoSelecionado = botao.dataset.button
@@ -14,49 +15,49 @@ const buttons =  {
     configura: e => configuracao(e),
     salvar: e => salvarConfiguracao(e),
     voltar: e => voltarAoInicio(e),
-    jogarNovamente: jogarNovamente,
-    desistir: sair,
-    reiniciar: fecharDialog
+    jogarNovamente: e => jogarNovamente(),
+    desistir: e => sair(),
+    reiniciar: e => fecharDialog()
 }
 
 
 //sessão inicio
-function jogar(e) {
+const jogar = (e) => {
     e.parentElement.style.display = 'none'
     document.querySelector('.tela__jogo').style.display = 'flex'
     iniciaJogo()
 }
 
-function configuracao(e) {
+const configuracao = (e) => {
     e.parentElement.style.display = 'none'
     document.querySelector('.tela__configuracao').style.display = 'flex'
 }
 
 //sessão da configuração
-function salvarConfiguracao(e) {
+const salvarConfiguracao = (e) => {
     document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none'
     document.querySelector('.tela__jogo').style.display = 'flex'
     iniciaJogo()
 }
 
-function voltarAoInicio(e) {
+const voltarAoInicio = (e) => {
     document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none'
     document.querySelector('.tela__inicio').style.display = 'flex'
 }
 
 // sessão do Jogo
-function jogarNovamente() {
+const jogarNovamente = () => {
     resetaJogo()
 }
 
-function sair() {
+const sair = () => {
     document.querySelector('.tela__jogo-container').parentElement.style.display = 'none'
     document.querySelector('.tela__inicio').style.display = 'flex'
     resetaJogo()
 }
 
 //daiog - popUp caso percam 
-function fecharDialog() {
+const fecharDialog = () => {
     resetaJogo()
     popUp.close()
 }
