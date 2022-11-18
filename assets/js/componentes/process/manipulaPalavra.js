@@ -4,18 +4,18 @@ import {
 } from "../utils/caracter.js"
 
 function retiraCaracter(palavra){
-    let palavraSemCaracteres = ''
+    let palavraSemCaracteres = '';
     palavra.split('').forEach(letra => {
         palavraSemCaracteres = palavra.replaceAll(regExp, (letra) => {
             return caracterEspecial[letra]
-        })
-    })
+        });
+    });
 
     return palavraSemCaracteres
 }
 
 function ocultaPalavra(palavra){
-    const localDaPalavra = document.querySelector('.tela__jogo-letras')
+    const localDaPalavra = document.querySelector('.tela__jogo-letras');
     const palavraOculta = palavra.split('').map((letras, i) => {
         return `
             <span class="letra--secreta">${letras.replace(palavra.charAt(i), letra => {
@@ -24,34 +24,34 @@ function ocultaPalavra(palavra){
                 }
                 return ' _ '
             })}</span>
-        `
-    }).join('')
+        `;
+    }).join('');
 
     localDaPalavra.innerHTML = `
         ${palavraOculta}
-    `
+    `;
 }
 
 function mostraPalavra(palavras, str){
-    const letra = document.querySelectorAll('.letra--secreta')
+    const letra = document.querySelectorAll('.letra--secreta');
     palavras.split('').forEach((palavra, i, arrayPalavra) => { 
 
         if(arrayPalavra[i] === str){
-            letra[i].innerHTML = str
+            letra[i].innerHTML = str;
         }
-    })
+    });
 
 }
 
 function organizaPalavraSecreta(palavra, palavraCorretaDesordenada) {
-    let palavraOrganizada = ''
-    let trasfromaPlavraEmArray = palavra.split('')
+    let palavraOrganizada = '';
+    let trasfromaPlavraEmArray = palavra.split('');
 
     palavraOrganizada = trasfromaPlavraEmArray.map((palavras) => {
         return palavraCorretaDesordenada.find((letra) => {
             return letra === palavras
-        })
-    }).join('')
+        });
+    }).join('');
 
     return palavraOrganizada
 }

@@ -1,5 +1,5 @@
-const alfabeto = 'abcdefghijklmnopqrstuvwxyz'
-const regExp = /[áàãâÁÀÃÂéèêÉÈÊíìîÍÌÎóòõôÓÒÕÔñÑ]/g
+const alfabeto = 'abcdefghijklmnopqrstuvwxyz';
+const regExp = /[áàãâÁÀÃÂéèêÉÈÊíìîÍÌÎóòõôÓÒÕÔñÑ]/g;
 const caracterEspecial = {
     á: 'a', à: 'a', ã: 'a', â: 'a',
     Á: 'A', À: 'A', Ã: 'A', Â: 'A',
@@ -10,7 +10,7 @@ const caracterEspecial = {
     ó: 'o', ò: 'o', õ: 'o', ô: 'o',
     Ó: 'O', Ò: 'O', Õ: 'O', Ô: 'O',
     ñ: 'n', Ñ: 'N'
-}
+};
 
 
 export {

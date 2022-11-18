@@ -5,10 +5,10 @@ import {
 } from "../process/acoesDoJogo.js";
 
 export default function ativaBotaos(botao) {
-    let botaoSelecionado = botao.dataset.button
+    let botaoSelecionado = botao.dataset.button;
 
     if(buttons[botaoSelecionado]){
-        buttons[botaoSelecionado](botao)
+        buttons[botaoSelecionado](botao);
     }
 }
 
@@ -25,43 +25,43 @@ const buttons =  {
 
 //sessão inicio
 const jogar = (e) => {
-    e.parentElement.style.display = 'none'
-    document.querySelector('.tela__jogo').style.display = 'flex'
-    iniciaJogo()
+    e.parentElement.style.display = 'none';
+    document.querySelector('.tela__jogo').style.display = 'flex';
+    iniciaJogo();
 }
 
 const configuracao = (e) => {
-    e.parentElement.style.display = 'none'
-    document.querySelector('.tela__configuracao').style.display = 'flex'
+    e.parentElement.style.display = 'none';
+    document.querySelector('.tela__configuracao').style.display = 'flex';
 }
 
 //sessão da configuração
 const salvarConfiguracao = (e) => {
-    document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none'
-    document.querySelector('.tela__jogo').style.display = 'flex'
-    iniciaJogo()
+    document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none';
+    document.querySelector('.tela__jogo').style.display = 'flex';
+    iniciaJogo();
 }
 
 const voltarAoInicio = (e) => {
-    document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none'
-    document.querySelector('.tela__inicio').style.display = 'flex'
+    document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none';
+    document.querySelector('.tela__inicio').style.display = 'flex';
 }
 
 // sessão do Jogo
 const jogarNovamente = () => {
-    resetaJogo()
+    resetaJogo();
 }
 
 const sair = () => {
-    document.querySelector('.tela__jogo-container').parentElement.style.display = 'none'
-    document.querySelector('.tela__inicio').style.display = 'flex'
-    resetaJogo()
+    document.querySelector('.tela__jogo-container').parentElement.style.display = 'none';
+    document.querySelector('.tela__inicio').style.display = 'flex';
+    resetaJogo();
 }
 
 //daiog - popUp caso percam 
 const fecharDialog = () => {
-    resetaJogo()
-    popUp.close()
+    resetaJogo();
+    popUp.close();
 }
 
 

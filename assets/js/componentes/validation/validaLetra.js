@@ -9,46 +9,46 @@ import {
 } from "../process/manipulaPalavra.js"
 
 export function verificaBotao(botao, palavra, elemento){
-    palavra = palavra.toLowerCase()
+    palavra = palavra.toLowerCase();
 
-    let palavraDescoberta = ''
-    let palavraSecretaSemEspaco = palavra.replace(/\s/g, '')
+    let palavraDescoberta = '';
+    let palavraSecretaSemEspaco = palavra.replace(/\s/g, '');
 
-    palavraSecretaSemEspaco === palavraDescoberta && vitoria(elemento)
+    palavraSecretaSemEspaco === palavraDescoberta && vitoria(elemento);
     
     if(letrasErradas.includes(botao) || letrasCorreta.includes(botao)) return
 
-    valoresInicias.tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento)
+    valoresInicias.tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento);
 
-    palavraDescoberta = organizaPalavraSecreta(palavra, letrasCorreta)
-    console.log(`teste:\n${palavraDescoberta}`)
+    palavraDescoberta = organizaPalavraSecreta(palavra, letrasCorreta);
+    console.log(`teste:\n${palavraDescoberta}`);
 }
 
 function validaJogada(palavra, botao){
     if(palavra.includes(botao)){
-        document.querySelector(`button[value="${botao}"]`).style.background = "#0a3871"
-        document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
-        letrasCorreta.push(botao)
-        mostraPalavra(palavra, botao)
+        document.querySelector(`button[value="${botao}"]`).style.background = "#0a3871";
+        document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff";
+        letrasCorreta.push(botao);
+        mostraPalavra(palavra, botao);
         return
     }
     
-    valoresInicias.tentativas++
-    letrasErradas.push(botao)
-    document.querySelector(`button[value="${botao}"]`).style.background = "#343a40"
-    document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
+    valoresInicias.tentativas++;
+    letrasErradas.push(botao);
+    document.querySelector(`button[value="${botao}"]`).style.background = "#343a40";
+    document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff";
 }
 
 function vitoria(elemento){
-    elemento.querySelector(".caixa--titulo").textContent = "Você venceu!"
-    elemento.querySelector(".caixa--menssagem").textContent = "Parabéns! Você descobriu a palavra secreta ^^"
-    elemento.querySelector(".pop-up").textContent = "Reiniciar"
-    elemento.showModal()
+    elemento.querySelector(".caixa--titulo").textContent = "Você venceu!";
+    elemento.querySelector(".caixa--menssagem").textContent = "Parabéns! Você descobriu a palavra secreta ^^";
+    elemento.querySelector(".pop-up").textContent = "Jogar Novamente";
+    elemento.showModal();
 }
 
 function derrota(elemento){
-    elemento.querySelector(".caixa--titulo").textContent = "Fim de Jogo"
-    elemento.querySelector(".caixa--menssagem").textContent = "Não foi dessa vez . . ."
-    elemento.querySelector(".pop-up").textContent = "Reiniciar"
-    elemento.showModal()
+    elemento.querySelector(".caixa--titulo").textContent = "Fim de Jogo";
+    elemento.querySelector(".caixa--menssagem").textContent = "Não foi dessa vez . . .";
+    elemento.querySelector(".pop-up").textContent = "Reiniciar";
+    elemento.showModal();
 }
