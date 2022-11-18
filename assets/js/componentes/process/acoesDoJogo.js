@@ -1,9 +1,7 @@
 ﻿import { palavras } from "../utils/palavra.js";
-import {
-    tentativas,
-    letras,
-    indice,
-    palavraSecreta
+import { 
+    valoresInicias,
+    letras 
 } from "../utils/valoresIniciais.js";
 import {
     retiraCaracter,
@@ -16,16 +14,16 @@ function sortearPalavra(array) {
 }
 
 export const iniciaJogo = () => {
-    indice = sortearPalavra(palavras)
-    palavraSecreta = retiraCaracter(palavras[indice])
-    ocultaPalavra(palavraSecreta)
+    valoresInicias.indice = sortearPalavra(palavras)
+    valoresInicias.palavraSecreta = retiraCaracter(palavras[valoresInicias.indice])
+    ocultaPalavra(valoresInicias.palavraSecreta)
 }
 
 export const resetaJogo = () => {
-    tentativas = 1
+    valoresInicias.tentativas = 1
 
-    indice = sortearPalavra(palavras)
-    palavraSecreta = retiraCaracter(palavras[indice])
+    valoresInicias.indice = sortearPalavra(palavras)
+    valoresInicias.palavraSecreta = retiraCaracter(palavras[valoresInicias.indice])
 
     //zerar Canvas
 
@@ -34,7 +32,7 @@ export const resetaJogo = () => {
         botao.style.color = "#343a40"
     })
 
-    ocultaPalavra(palavraSecreta)
+    ocultaPalavra(valoresInicias.palavraSecreta)
 }
 
 

@@ -1,8 +1,8 @@
 import { alfabeto } from "./componentes/utils/caracter.js"
 import {
-    letras, 
-    popUp, 
-    palavraSecreta 
+    valoresInicias,
+    popUp,
+    letras
 } from "./componentes/utils/valoresIniciais.js"
 import { verificaBotao } from "./componentes/validation/validaLetra.js"
 import ativaBotaos from "./componentes/controllers/controleDeAcao.js"
@@ -17,7 +17,7 @@ botoes.forEach((botao) => {
 
 letras.forEach((letra) => {
     letra.addEventListener ('click', (e) => {
-        verificaBotao(e.target.value, palavraSecreta, popUp)
+        verificaBotao(e.target.value, valoresInicias.palavraSecreta, popUp)
     })
 })
 
@@ -28,5 +28,5 @@ window.addEventListener('keydown', (event) => {
         return
     }
 
-    verificaBotao(tecla, palavraSecreta, popUp)
+    verificaBotao(tecla, valoresInicias.palavraSecreta, popUp)
 })

@@ -1,8 +1,14 @@
+const letras = document.querySelectorAll('[data-letra]');
+const popUp = document.querySelector('dialog');
 
-export const letras = document.querySelectorAll('[data-letra]')
-export const popUp = document.querySelector('dialog')
+let valoresInicias = {
+    tentativas: 1,
+    indice: Number,
+    palavraSecreta: String
+};
 
-export let tentativas = 1
-export let indice = ''
-export let palavraSecreta = ''
-
+export {
+    valoresInicias,
+    letras,
+    popUp
+}

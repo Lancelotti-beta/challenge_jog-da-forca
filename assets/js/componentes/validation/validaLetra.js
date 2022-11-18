@@ -1,4 +1,4 @@
-import { tentativas }  from "../utils/valoresIniciais.js"
+import { valoresInicias }  from "../utils/valoresIniciais.js"
 import {
     letrasErradas,
     letrasCorreta
@@ -18,7 +18,7 @@ export function verificaBotao(botao, palavra, elemento){
     
     if(letrasErradas.includes(botao) || letrasCorreta.includes(botao)) return
 
-    tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento)
+    valoresInicias.tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento)
 
     palavraDescoberta = organizaPalavraSecreta(palavra, letrasCorreta)
     console.log(`teste:\n${palavraDescoberta}`)
@@ -33,7 +33,7 @@ function validaJogada(palavra, botao){
         return
     }
     
-    tentativas++
+    valoresInicias.tentativas++
     letrasErradas.push(botao)
     document.querySelector(`button[value="${botao}"]`).style.background = "#343a40"
     document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff"
