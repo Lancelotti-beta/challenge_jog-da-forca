@@ -3,8 +3,9 @@ const popUp = document.querySelector('dialog');
 
 let valoresInicias = {
     tentativas: 1,
-    indice: Number,
-    palavraSecreta: String
+    indiceDaPalavra: Number,
+    palavraSecreta: String,
+    fimDeJogo: Boolean
 };
 
 export {

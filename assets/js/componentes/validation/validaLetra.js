@@ -13,15 +13,18 @@ export function verificaBotao(botao, palavra, elemento){
 
     let palavraDescoberta = '';
     let palavraSecretaSemEspaco = palavra.replace(/\s/g, '');
-
-    palavraSecretaSemEspaco === palavraDescoberta && vitoria(elemento);
     
+    if(valoresInicias.fimDeJogo) return
+
     if(letrasErradas.includes(botao) || letrasCorreta.includes(botao)) return
 
     valoresInicias.tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento);
 
     palavraDescoberta = organizaPalavraSecreta(palavra, letrasCorreta);
-    console.log(`teste:\n${palavraDescoberta}`);
+
+    if(palavraSecretaSemEspaco === palavraDescoberta) vitoria(elemento)
+
+    console.log(`teste: ${palavraDescoberta}\nstatus: ${palavraSecretaSemEspaco === palavraDescoberta}`);
 }
 
 function validaJogada(palavra, botao){
@@ -40,6 +43,7 @@ function validaJogada(palavra, botao){
 }
 
 function vitoria(elemento){
+    valoresInicias.fimDeJogo = true
     elemento.querySelector(".caixa--titulo").textContent = "Você venceu!";
     elemento.querySelector(".caixa--menssagem").textContent = "Parabéns! Você descobriu a palavra secreta ^^";
     elemento.querySelector(".pop-up").textContent = "Jogar Novamente";
@@ -47,6 +51,7 @@ function vitoria(elemento){
 }
 
 function derrota(elemento){
+    valoresInicias.fimDeJogo = true
     elemento.querySelector(".caixa--titulo").textContent = "Fim de Jogo";
     elemento.querySelector(".caixa--menssagem").textContent = "Não foi dessa vez . . .";
     elemento.querySelector(".pop-up").textContent = "Reiniciar";
