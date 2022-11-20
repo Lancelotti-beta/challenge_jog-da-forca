@@ -11,7 +11,7 @@
 }
 
 .tela__jogo-forca {
-    width: 90%;
+    width: 100%;
     max-width: 400px;
     height: 75%;
     max-height: 375px;
@@ -54,6 +54,12 @@
         width: 60%;
     }
 
+    .tela__jogo-forca {
+        width: 90%;
+        max-width: 768px;
+        max-height: 425px;
+    }
+
     .tela__jogo-teclas {
         max-width: 800px;
     }
@@ -67,6 +73,11 @@
     .tela__jogo-container {
         flex-direction: row;
         height: 10%;
+    }
+
+    .tela__jogo-forca {
+        max-width: 1440px;
+        max-height: 580px;
     }
 
     .tela__jogo-teclas {

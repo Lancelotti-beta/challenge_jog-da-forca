@@ -1,4 +1,5 @@
-﻿import { 
+﻿import desenharCanvas from "./desenhaForca.js";
+import { 
     palavras,
     letrasCorreta,
     letrasErradas 
@@ -21,6 +22,7 @@ export const iniciaJogo = () => {
     valoresInicias.fimDeJogo = false;
     valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
     valoresInicias.palavraSecreta = retiraCaracter(palavras[valoresInicias.indiceDaPalavra]);
+    desenharCanvas()
     ocultaPalavra(valoresInicias.palavraSecreta);
 }
 
@@ -32,6 +34,7 @@ export const resetaJogo = () => {
     letrasErradas.length = 0;
 
     //zerar Canvas
+    desenharCanvas()
 
     valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
     valoresInicias.palavraSecreta = retiraCaracter(palavras[valoresInicias.indiceDaPalavra]);
