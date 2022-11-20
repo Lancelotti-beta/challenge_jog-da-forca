@@ -10,10 +10,13 @@ function desenharCanvas(){
 }
 
 function desenhaForca(){
-    modulo.canvas.largura = this.naturalWidth;
-    modulo.canvas.altura = this.naturalHeight;
+    console.log(`Isso é o THIS :\n${this.naturalWidth}\nEsse é o Objeto Canvas:\n${modulo.canvas.largura}`)
+    console.log(`Isso é o THIS :\n${this.naturalHeight}\nEsse é o Objeto Canvas:\n${modulo.canvas.altura}`)
 
-    tela.drawImage(this,  modulo.canvas.largura/2, modulo.canvas.altura/2, this.largura, this.altura);
+    //modulo.canvas.largura = this.naturalWidth;
+    //modulo.canvas.altura = this.naturalHeight;
+
+    tela.drawImage(this,  modulo.canvas.largura/3, modulo.canvas.altura/4, this.naturalWidth, this.naturalHeight);
 }
 
 export default desenharCanvas

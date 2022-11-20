@@ -36,10 +36,10 @@ function validaJogada(palavra, botao){
         return
     }
     
-    modulo.valoresInicias.tentativas++;
-    letrasErradas.push(botao);
     document.querySelector(`button[value="${botao}"]`).style.background = "#343a40";
     document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff";
+    letrasErradas.push(botao);
+    modulo.valoresInicias.tentativas++;
 }
 
 function vitoria(elemento){
