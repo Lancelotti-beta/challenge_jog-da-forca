@@ -10,8 +10,8 @@ function desenharCanvas(){
 
     tela.fillRect(canvas.eixoX, canvas.eixoY, canvas.largura, canvas.altura);
     tela.beginPath();
-    tela.moveTo(900, 500);
-    tela.lineTo(650, 500);
+    tela.moveTo(canvas.largura/2, 500);
+    tela.lineTo(canvas.altura/2, 500);
     tela.stroke();
     tela.closePath();
 }
