@@ -19,6 +19,7 @@ modulo.letras.forEach((letra) => {
 
 window.addEventListener('keydown', (event) => {
     let tecla = event.key;
+    //console.log('click?')
     const chave = alfabeto.includes(tecla);
     if(!chave){
         return
