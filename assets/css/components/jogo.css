@@ -11,7 +11,7 @@
 }
 
 .tela__jogo-forca {
-    width: 100%;
+    width: 100vw;
     max-width: 400px;
     height: 75%;
     max-height: 375px;
@@ -81,6 +81,6 @@
     }
 
     .tela__jogo-teclas {
-        max-width: 992px;
+        display: none;
     }
 }

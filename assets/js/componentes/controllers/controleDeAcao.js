@@ -1,4 +1,4 @@
-import { popUp } from "../utils/valoresIniciais.js";
+import modulo from "../utils/valoresIniciais.js";
 import {
     iniciaJogo,
     resetaJogo
@@ -61,7 +61,7 @@ const sair = () => {
 //daiog - popUp caso percam 
 const fecharDialog = () => {
     resetaJogo();
-    popUp.close();
+    modulo.popUp.close();
 }
 
 

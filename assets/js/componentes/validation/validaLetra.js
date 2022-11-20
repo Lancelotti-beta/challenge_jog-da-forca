@@ -1,4 +1,4 @@
-import { valoresInicias }  from "../utils/valoresIniciais.js"
+import modulo  from "../utils/valoresIniciais.js"
 import {
     letrasErradas,
     letrasCorreta
@@ -14,11 +14,11 @@ export function verificaBotao(botao, palavra, elemento){
     let palavraDescoberta = '';
     let palavraSecretaSemEspaco = palavra.replace(/\s/g, '');
     
-    if(valoresInicias.fimDeJogo) return
+    if(modulo.valoresInicias.fimDeJogo) return
 
     if(letrasErradas.includes(botao) || letrasCorreta.includes(botao)) return
 
-    valoresInicias.tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento);
+    modulo.valoresInicias.tentativas < 7 ? validaJogada(palavra, botao) : derrota(elemento);
 
     palavraDescoberta = organizaPalavraSecreta(palavra, letrasCorreta);
 
@@ -36,14 +36,14 @@ function validaJogada(palavra, botao){
         return
     }
     
-    valoresInicias.tentativas++;
+    modulo.valoresInicias.tentativas++;
     letrasErradas.push(botao);
     document.querySelector(`button[value="${botao}"]`).style.background = "#343a40";
     document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff";
 }
 
 function vitoria(elemento){
-    valoresInicias.fimDeJogo = true
+    modulo.valoresInicias.fimDeJogo = true
     elemento.querySelector(".caixa--titulo").textContent = "Você venceu!";
     elemento.querySelector(".caixa--menssagem").textContent = "Parabéns! Você descobriu a palavra secreta ^^";
     elemento.querySelector(".pop-up").textContent = "Jogar Novamente";
@@ -51,7 +51,7 @@ function vitoria(elemento){
 }
 
 function derrota(elemento){
-    valoresInicias.fimDeJogo = true
+    modulo.valoresInicias.fimDeJogo = true
     elemento.querySelector(".caixa--titulo").textContent = "Fim de Jogo";
     elemento.querySelector(".caixa--menssagem").textContent = "Não foi dessa vez . . .";
     elemento.querySelector(".pop-up").textContent = "Reiniciar";

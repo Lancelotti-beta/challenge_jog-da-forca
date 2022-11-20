@@ -1,11 +1,7 @@
-import { alfabeto } from "./componentes/utils/caracter.js"
-import {
-    valoresInicias,
-    popUp,
-    letras
-} from "./componentes/utils/valoresIniciais.js"
-import { verificaBotao } from "./componentes/validation/validaLetra.js"
 import ativaBotaos from "./componentes/controllers/controleDeAcao.js"
+import modulo from "./componentes/utils/valoresIniciais.js"
+import { alfabeto } from "./componentes/utils/caracter.js"
+import { verificaBotao } from "./componentes/validation/validaLetra.js"
 
 const botoes = document.querySelectorAll('button');
 
@@ -15,9 +11,9 @@ botoes.forEach((botao) => {
     });
 });
 
-letras.forEach((letra) => {
+modulo.letras.forEach((letra) => {
     letra.addEventListener ('click', (e) => {
-        verificaBotao(e.target.value, valoresInicias.palavraSecreta, popUp);
+        verificaBotao(e.target.value, modulo.valoresInicias.palavraSecreta, modulo.popUp);
     });
 });
 
@@ -28,5 +24,5 @@ window.addEventListener('keydown', (event) => {
         return
     }
 
-    verificaBotao(tecla, valoresInicias.palavraSecreta, popUp);
+    verificaBotao(tecla, modulo.valoresInicias.palavraSecreta, modulo.popUp);
 });

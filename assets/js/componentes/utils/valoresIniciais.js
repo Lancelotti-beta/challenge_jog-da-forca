@@ -1,9 +1,9 @@
-const letras = document.querySelectorAll('[data-letra]');
-const popUp = document.querySelector('dialog');
+const $letras = document.querySelectorAll('[data-letra]');
+const $popUp = document.querySelector('dialog');
 
 const canvas = {
-    largura: 1200,
-    altura: 800,
+    largura: 1024,
+    altura: 520,
     eixoX: 0,
     eixoY: 0
 }
@@ -16,9 +16,9 @@ let valoresInicias = {
     fimDeJogo: Boolean
 };
 
-export {
+export default {
     valoresInicias,
     canvas,
-    letras,
-    popUp
+    letras: $letras,
+    popUp: $popUp
 }

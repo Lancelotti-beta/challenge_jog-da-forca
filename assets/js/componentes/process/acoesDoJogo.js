@@ -4,10 +4,7 @@ import {
     letrasCorreta,
     letrasErradas 
 } from "../utils/palavra.js";
-import { 
-    valoresInicias,
-    letras 
-} from "../utils/valoresIniciais.js";
+import modulo from "../utils/valoresIniciais.js";
 import {
     retiraCaracter,
     ocultaPalavra
@@ -19,16 +16,16 @@ function sortearPalavra(array) {
 }
 
 export const iniciaJogo = () => {
-    valoresInicias.fimDeJogo = false;
-    valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
-    valoresInicias.palavraSecreta = retiraCaracter(palavras[valoresInicias.indiceDaPalavra]);
+    modulo.valoresInicias.fimDeJogo = false;
+    modulo.valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
+    modulo.valoresInicias.palavraSecreta = retiraCaracter(palavras[modulo.valoresInicias.indiceDaPalavra]);
     desenharCanvas()
-    ocultaPalavra(valoresInicias.palavraSecreta);
+    ocultaPalavra(modulo.valoresInicias.palavraSecreta);
 }
 
 export const resetaJogo = () => {
-    valoresInicias.fimDeJogo = false;
-    valoresInicias.tentativas = 1;
+    modulo.valoresInicias.fimDeJogo = false;
+    modulo.valoresInicias.tentativas = 1;
 
     letrasCorreta.length = 0;
     letrasErradas.length = 0;
@@ -36,15 +33,15 @@ export const resetaJogo = () => {
     //zerar Canvas
     desenharCanvas()
 
-    valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
-    valoresInicias.palavraSecreta = retiraCaracter(palavras[valoresInicias.indiceDaPalavra]);
+    modulo.valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
+    modulo.valoresInicias.palavraSecreta = retiraCaracter(palavras[modulo.valoresInicias.indiceDaPalavra]);
 
-    letras.forEach( botao => {
+    modulo.letras.forEach( botao => {
         botao.style.background = "none"
         botao.style.color = "#343a40"
     });
 
-    ocultaPalavra(valoresInicias.palavraSecreta);
+    ocultaPalavra(modulo.valoresInicias.palavraSecreta);
 }
 
 
