@@ -3,9 +3,9 @@ import modulo from "./componentes/utils/valoresIniciais.js"
 import { alfabeto } from "./componentes/utils/caracter.js"
 import { verificaBotao } from "./componentes/validation/validaLetra.js"
 
-const botoes = document.querySelectorAll('button');
+const $botoes = document.querySelectorAll('button');
 
-botoes.forEach((botao) => {
+$botoes.forEach((botao) => {
     botao.addEventListener('click', (event) => {
         ativaBotaos(event.target);
     });
@@ -19,7 +19,6 @@ modulo.letras.forEach((letra) => {
 
 window.addEventListener('keydown', (event) => {
     let tecla = event.key;
-    //console.log('click?')
     const chave = alfabeto.includes(tecla);
     if(!chave){
         return

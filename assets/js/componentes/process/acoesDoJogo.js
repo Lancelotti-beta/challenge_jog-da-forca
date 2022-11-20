@@ -1,5 +1,8 @@
-﻿import desenharCanvas from "./desenhaForca.js";
-import { 
+﻿import desenha, {
+    $canvas,
+    tela 
+} from "./desenhaForca.js";
+import {
     palavras,
     letrasCorreta,
     letrasErradas 
@@ -19,19 +22,24 @@ export const iniciaJogo = () => {
     modulo.valoresInicias.fimDeJogo = false;
     modulo.valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
     modulo.valoresInicias.palavraSecreta = retiraCaracter(palavras[modulo.valoresInicias.indiceDaPalavra]);
-    desenharCanvas()
+
+    desenha.desenharCanvas()
+
     ocultaPalavra(modulo.valoresInicias.palavraSecreta);
 }
 
 export const resetaJogo = () => {
     modulo.valoresInicias.fimDeJogo = false;
-    modulo.valoresInicias.tentativas = 1;
+    modulo.valoresInicias.tentativas = 0;
 
     letrasCorreta.length = 0;
     letrasErradas.length = 0;
 
     //zerar Canvas
-    desenharCanvas()
+    tela.fillStyle = "#F3F5FC";
+    tela.strokeStyle = "#0A3871";
+    tela.fillRect(0, 0, $canvas.width, $canvas.height);
+    desenha.desenharCanvas();
 
     modulo.valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
     modulo.valoresInicias.palavraSecreta = retiraCaracter(palavras[modulo.valoresInicias.indiceDaPalavra]);

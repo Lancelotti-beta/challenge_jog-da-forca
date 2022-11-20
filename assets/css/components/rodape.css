@@ -10,7 +10,7 @@
     font-size: 1.2rem;
     font-weight: var(--fina);
     text-align: center;
-    padding-bottom: 2rem;
+    padding: 1rem;
 }
 
 .rodape__texto--alternativo {

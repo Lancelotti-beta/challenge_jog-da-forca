@@ -2,7 +2,7 @@ const $letras = document.querySelectorAll('[data-letra]');
 const $popUp = document.querySelector('dialog');
 
 let valoresInicias = {
-    tentativas: 1,
+    tentativas: 0,
     indiceDaPalavra: Number,
     palavraSecreta: String,
     fimDeJogo: Boolean

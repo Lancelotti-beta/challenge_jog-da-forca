@@ -64,15 +64,13 @@ const cabeca = {
     }
 }
 
-/*
-
 const tronco = {
     spriteX: 0,
     spriteY: 0,
     altura: troncoSVG.naturalHeight,
     largura: troncoSVG.naturalWidth,
-    x: $canvas.width/2 - 200,
-    y: $canvas.height/2 - 200,
+    x: $canvas.width/2 + 105,
+    y: $canvas.height/2 - 40,
     desenha(){
         tela.drawImage(
             troncoSVG,  
@@ -83,14 +81,15 @@ const tronco = {
         );
     }
 }
+    
 
 const bracoDireito = {
     spriteX: 0,
     spriteY: 0,
     altura: bracoDireitoSVG.naturalHeight,
     largura: bracoDireitoSVG.naturalWidth,
-    x: $canvas.width/2 - 200,
-    y: $canvas.height/2 - 200,
+    x: $canvas.width/3 + 276,
+    y: $canvas.height/2 - 30,
     desenha(){
         tela.drawImage(
             bracoDireitoSVG,  
@@ -107,8 +106,8 @@ const bracoEsquerdo = {
     spriteY: 0,
     altura: bracoEsquerdoSVG.naturalHeight,
     largura: bracoEsquerdoSVG.naturalWidth,
-    x: $canvas.width/2 - 200,
-    y: $canvas.height/2 - 200,
+    x: $canvas.width/3 + 242,
+    y: $canvas.height/2 - 30,
     desenha(){
         tela.drawImage(
             bracoEsquerdoSVG,  
@@ -125,8 +124,8 @@ const pernaDireita = {
     spriteY: 0,
     altura: pernaDireitaSVG.naturalHeight,
     largura: pernaDireitaSVG.naturalWidth,
-    x: $canvas.width/2 - 200,
-    y: $canvas.height/2 - 200,
+    x: $canvas.width/3 + 276,
+    y: $canvas.height - 170,
     desenha(){
         tela.drawImage(
             pernaDireitaSVG,  
@@ -143,8 +142,8 @@ const pernaEsquerda = {
     spriteY: 0,
     altura: pernaEsquerdaSVG.naturalHeight,
     largura: pernaEsquerdaSVG.naturalWidth,
-    x: $canvas.width/2 - 200,
-    y: $canvas.height/2 - 200,
+    x: $canvas.width/3 + 242,
+    y: $canvas.height - 170,
     desenha(){
         tela.drawImage(
             pernaEsquerdaSVG,  
@@ -155,21 +154,29 @@ const pernaEsquerda = {
         );
     }
 }
-*/
 
 function desenharCanvas(){
     forcaSVG.onload = forca.desenha();
-
-    cabecaSVG.onload = cabeca.desenha();
-
-    //troncoSVG.onload = tronco.desenha();
-
-    //bracoDireitoSVG.onload = bracoDireito.desenha();
-    //bracoEsquerdoSVG.onload = bracoEsquerdo.desenha();
-
-    //pernaDireitaSVG.onload = pernaDireita.desenha();
-    //pernaEsquerdaSVG.onload = pernaEsquerda.desenha();
 }
 
+export {
+    $canvas,
+    tela,
+    cabeca,
+    tronco,
+    bracoDireito,
+    bracoEsquerdo,
+    pernaDireita,
+    pernaEsquerda
+}
 
-export default desenharCanvas
+export default {
+    desenharCanvas,
+    bonecoParteI: cabecaSVG,
+    bonecoParteII: troncoSVG,
+    bonecoParteIII: bracoDireitoSVG,
+    bonecoParteIV: bracoEsquerdoSVG,
+    bonecoParteV: pernaDireitaSVG,
+    bonecoParteVI: pernaEsquerdaSVG,
+}
+
