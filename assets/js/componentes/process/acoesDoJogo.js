@@ -1,17 +1,18 @@
-﻿import desenha, {
+﻿import {
     $canvas,
     tela 
-} from "./desenhaForca.js";
+} from "../../canvas.js";
+import desenharCanvas from "./desenhaForca.js"
+import {
+    retiraCaracter,
+    ocultaPalavra
+} from "./manipulaPalavra.js";
 import {
     palavras,
     letrasCorreta,
     letrasErradas 
 } from "../utils/palavra.js";
 import modulo from "../utils/valoresIniciais.js";
-import {
-    retiraCaracter,
-    ocultaPalavra
-} from "./manipulaPalavra.js";
 
 
 function sortearPalavra(array) {
@@ -23,7 +24,7 @@ export const iniciaJogo = () => {
     modulo.valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
     modulo.valoresInicias.palavraSecreta = retiraCaracter(palavras[modulo.valoresInicias.indiceDaPalavra]);
 
-    desenha.desenharCanvas()
+    desenharCanvas()
 
     ocultaPalavra(modulo.valoresInicias.palavraSecreta);
 }
@@ -39,7 +40,7 @@ export const resetaJogo = () => {
     tela.fillStyle = "#F3F5FC";
     tela.strokeStyle = "#0A3871";
     tela.fillRect(0, 0, $canvas.width, $canvas.height);
-    desenha.desenharCanvas();
+    desenharCanvas();
 
     modulo.valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
     modulo.valoresInicias.palavraSecreta = retiraCaracter(palavras[modulo.valoresInicias.indiceDaPalavra]);

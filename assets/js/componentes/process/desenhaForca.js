@@ -1,42 +1,19 @@
-
-//CARREGANDO IMAGENS
-const forcaSVG = new Image();
-forcaSVG.src = "../../assets/img/forca_forca.svg";
-
-const cabecaSVG = new Image();
-cabecaSVG.src = "../../assets/img/cabeca_boneco.svg";
-
-const troncoSVG = new Image();
-troncoSVG.src = "../../assets/img/tronco_boneco.svg";
-
-const bracoDireitoSVG = new Image();
-bracoDireitoSVG.src = "../../assets/img/bracoDireito_boneco.svg";
-
-const bracoEsquerdoSVG = new Image();
-bracoEsquerdoSVG.src = "../../assets/img/bracoEsquerdo_boneco.svg";
-
-const pernaDireitaSVG = new Image();
-pernaDireitaSVG.src = "../../assets/img/pernaDireita_boneco.svg";
-
-const pernaEsquerdaSVG = new Image();
-pernaEsquerdaSVG.src = "../../assets/img/pernaEsquerda_boneco.svg";
-
-
-//INICIANDO CANVAS
-const $canvas = document.querySelector('canvas')
-const tela = $canvas.getContext('2d')
+import image, {
+    $canvas,
+    tela
+} from "../../canvas.js"
 
 //CONSTRUINDO PARTES DA FORCA
 const forca = {
     spriteX: 0,
     spriteY: 0,
-    altura: forcaSVG.naturalHeight,
-    largura: forcaSVG.naturalWidth,
+    altura: image.forca.naturalHeight,
+    largura: image.forca.naturalWidth,
     x: $canvas.width/2 - 150,
     y: $canvas.height/2 - 150,
     desenha(){
         tela.drawImage(
-            forcaSVG,  
+            image.forca,
             forca.spriteX, forca.spriteY, 
             forca.largura, forca.altura,
             forca.x, forca.y,
@@ -49,13 +26,13 @@ const forca = {
 const cabeca = {
     spriteX: 0,
     spriteY: 0,
-    altura: cabecaSVG.naturalHeight,
-    largura: cabecaSVG.naturalWidth,
+    altura: image.bonecoParteI.naturalHeight,
+    largura: image.bonecoParteI.naturalWidth,
     x: $canvas.width/2 + 70,
     y: $canvas.height/3 - 15,
     desenha(){
         tela.drawImage(
-            cabecaSVG,  
+            image.bonecoParteI,  
             cabeca.spriteX, cabeca.spriteY, 
             cabeca.largura, cabeca.altura,
             cabeca.x, cabeca.y,
@@ -67,13 +44,13 @@ const cabeca = {
 const tronco = {
     spriteX: 0,
     spriteY: 0,
-    altura: troncoSVG.naturalHeight,
-    largura: troncoSVG.naturalWidth,
+    altura: image.bonecoParteII.naturalHeight,
+    largura: image.bonecoParteII.naturalWidth,
     x: $canvas.width/2 + 105,
     y: $canvas.height/2 - 40,
     desenha(){
         tela.drawImage(
-            troncoSVG,  
+            image.bonecoParteII,  
             tronco.spriteX, tronco.spriteY, 
             tronco.largura, tronco.altura,
             tronco.x, tronco.y,
@@ -86,13 +63,13 @@ const tronco = {
 const bracoDireito = {
     spriteX: 0,
     spriteY: 0,
-    altura: bracoDireitoSVG.naturalHeight,
-    largura: bracoDireitoSVG.naturalWidth,
+    altura: image.bonecoParteIII.naturalHeight,
+    largura: image.bonecoParteIII.naturalWidth,
     x: $canvas.width/3 + 276,
     y: $canvas.height/2 - 30,
     desenha(){
         tela.drawImage(
-            bracoDireitoSVG,  
+            image.bonecoParteIII,  
             bracoDireito.spriteX, bracoDireito.spriteY, 
             bracoDireito.largura, bracoDireito.altura,
             bracoDireito.x, bracoDireito.y,
@@ -104,13 +81,13 @@ const bracoDireito = {
 const bracoEsquerdo = {
     spriteX: 0,
     spriteY: 0,
-    altura: bracoEsquerdoSVG.naturalHeight,
-    largura: bracoEsquerdoSVG.naturalWidth,
+    altura: image.bonecoParteIV.naturalHeight,
+    largura: image.bonecoParteIV.naturalWidth,
     x: $canvas.width/3 + 242,
     y: $canvas.height/2 - 30,
     desenha(){
         tela.drawImage(
-            bracoEsquerdoSVG,  
+            image.bonecoParteIV,  
             bracoEsquerdo.spriteX, bracoEsquerdo.spriteY, 
             bracoEsquerdo.largura, bracoEsquerdo.altura,
             bracoEsquerdo.x, bracoEsquerdo.y,
@@ -122,13 +99,13 @@ const bracoEsquerdo = {
 const pernaDireita = {
     spriteX: 0,
     spriteY: 0,
-    altura: pernaDireitaSVG.naturalHeight,
-    largura: pernaDireitaSVG.naturalWidth,
+    altura: image.bonecoParteV.naturalHeight,
+    largura: image.bonecoParteV.naturalWidth,
     x: $canvas.width/3 + 276,
     y: $canvas.height - 170,
     desenha(){
         tela.drawImage(
-            pernaDireitaSVG,  
+            image.bonecoParteV,  
             pernaDireita.spriteX, pernaDireita.spriteY, 
             pernaDireita.largura, pernaDireita.altura,
             pernaDireita.x, pernaDireita.y,
@@ -140,13 +117,13 @@ const pernaDireita = {
 const pernaEsquerda = {
     spriteX: 0,
     spriteY: 0,
-    altura: pernaEsquerdaSVG.naturalHeight,
-    largura: pernaEsquerdaSVG.naturalWidth,
+    altura: image.bonecoParteVI.naturalHeight,
+    largura: image.bonecoParteVI.naturalWidth,
     x: $canvas.width/3 + 242,
     y: $canvas.height - 170,
     desenha(){
         tela.drawImage(
-            pernaEsquerdaSVG,  
+            image.bonecoParteVI,  
             pernaEsquerda.spriteX, pernaEsquerda.spriteY, 
             pernaEsquerda.largura, pernaEsquerda.altura,
             pernaEsquerda.x, pernaEsquerda.y,
@@ -155,13 +132,43 @@ const pernaEsquerda = {
     }
 }
 
-function desenharCanvas(){
-    forcaSVG.onload = forca.desenha();
+function desenharCanvas(erros){
+    forca.desenha();
+
+    switch (erros) {
+        case 1:{
+            cabeca.desenha();
+            break;
+        }
+        case 2:{
+            tronco.desenha();
+            break;
+        }
+        case 3:{
+            bracoDireito.desenha();
+            break;
+        }
+        case 4:{
+            bracoEsquerdo.desenha();
+            break;
+        }
+        case 5:{
+            pernaDireita.desenha();
+            break;
+        }
+        case 6:{
+            pernaEsquerda.desenha();
+            break;
+        }
+        default:{
+            break;
+        }
+    }
+
+    requestAnimationFrame(desenharCanvas);
 }
 
 export {
-    $canvas,
-    tela,
     cabeca,
     tronco,
     bracoDireito,
@@ -170,13 +177,5 @@ export {
     pernaEsquerda
 }
 
-export default {
-    desenharCanvas,
-    bonecoParteI: cabecaSVG,
-    bonecoParteII: troncoSVG,
-    bonecoParteIII: bracoDireitoSVG,
-    bonecoParteIV: bracoEsquerdoSVG,
-    bonecoParteV: pernaDireitaSVG,
-    bonecoParteVI: pernaEsquerdaSVG,
-}
+export default desenharCanvas
 
