@@ -26,8 +26,8 @@ export function verificaBotao(botao, palavra, elemento){
         
         validaJogada(palavra, botao);
         palavraDescoberta = organizaPalavraSecreta(palavra, letrasCorreta);
-    
-        if(palavraSecretaSemEspaco === palavraDescoberta) vitoria(elemento)
+        
+        if(palavraSecretaSemEspaco === palavraDescoberta) setTimeout(() => vitoria(elemento), 1000)
     
         console.log(`teste: ${palavraDescoberta}\nstatus: ${palavraSecretaSemEspaco === palavraDescoberta}`);
     }
