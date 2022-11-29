@@ -3,30 +3,41 @@
     align-items: center;
     justify-content: center;
 
-    gap: 2rem;
+    gap: 1rem;
     margin: 0 auto;
 
     min-height: 100vh;
     display: none;
 }
 
+.tela--erros {
+    display: none;
+}
+
 .tela__jogo-forca {
     width: 100vw;
     max-width: 400px;
-    height: 75%;
+    height: 50%;
     max-height: 375px;
 }
 
 .tela__jogo-letras {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
     text-align: center;
     text-transform: uppercase;
     width: 90%;
 }
 
 .letra--secreta {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: var(--medio);
 }
+
+.letra--dica {
+    font-size: 1rem;
+} 
 
 .tela__jogo-teclas {
     display: flex;
@@ -73,6 +84,26 @@
     .tela__jogo-container {
         flex-direction: row;
         height: 10%;
+    }
+
+    .tela--forca-e-erros {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .tela--erros {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .tela--erros-letra {
+        font-size: 2rem;
+        color: var(--letras-erradas);
     }
 
     .tela__jogo-forca {

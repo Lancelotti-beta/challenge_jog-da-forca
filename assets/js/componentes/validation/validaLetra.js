@@ -9,7 +9,7 @@ import {
     organizaPalavraSecreta
 } from "../process/manipulaPalavra.js"
 
-export function verificaBotao(botao, palavra, elemento){
+export function verificaBotao(botao,  palavra, elemento) {
     palavra = palavra.toLowerCase();
 
     let palavraDescoberta = '';
@@ -40,7 +40,7 @@ export function verificaBotao(botao, palavra, elemento){
 
 }
 
-function validaJogada(palavra, botao){
+function validaJogada( palavra, botao){
     if(palavra.includes(botao)){
         document.querySelector(`button[value="${botao}"]`).style.background = "#0a3871";
         document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff";
@@ -48,7 +48,10 @@ function validaJogada(palavra, botao){
         mostraPalavra(palavra, botao);
         return
     }
-    
+
+    document.querySelector(".tela--erros").innerHTML += `
+        <span class="tela--erros-letra">${botao.toUpperCase()}</span>
+    `
     document.querySelector(`button[value="${botao}"]`).style.background = "#343a40";
     document.querySelector(`button[value="${botao}"]`).style.color = "#ffffff";
     letrasErradas.push(botao);

@@ -35,8 +35,12 @@
         </section>
 
         <section class="tela__jogo">
-            <canvas class="tela__jogo-forca" width="1024" height="520">
-            </canvas>
+            <div class="tela--forca-e-erros">
+                <div class="tela--erros"></div>
+                <canvas class="tela__jogo-forca" width="1024" height="520">
+                </canvas>
+            </div>
+            <script type="module" src="./assets/js/canvas.js"></script>
             <div class="tela__jogo-letras"></div>
             <div class="tela__jogo-teclas">
                 <button class="botao botao--letra" value="a" data-letra>A</button>
@@ -110,7 +114,7 @@
 
     </footer>
 
-    <script type="module" src="./assets/js/canvas.js"></script>
+    
     <script type="module" src="./assets/js/app.js"></script>
 </body>
 
