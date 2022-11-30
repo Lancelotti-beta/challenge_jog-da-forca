@@ -26,7 +26,16 @@
         </section>
 
         <section class="tela__configuracao">
-            <textarea class="tela__configuracao-campo-texto" placeholder="Digite uma palavra ou frase"></textarea>
+            <fieldset class="tela__configuracao-input">
+                <div class="config-container">
+                    <input name="palavra" id="palavra" class="tela__configuracao-campo-texto" placeholder="Digite uma palavra" required>
+                    <label for="palavra" class="config-textarea">Palavra</label>
+                </div>
+                <div class="config-container">
+                    <input name="dica" id="dica" class="tela__configuracao-campo-texto" placeholder="De uma dica referente a sua palavra" required>
+                    <label for="dica" class="config-textarea">Dica</label>
+                </div>
+            </fieldset>
             <p>Máx. de 8 letras</p>
             <div class="tela__configuracao-container">
                 <button data-button="salvar" class="botao botao__configuracao--jogar">Salvar e começar</button>
