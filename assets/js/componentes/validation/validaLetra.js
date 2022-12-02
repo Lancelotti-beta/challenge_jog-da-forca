@@ -75,3 +75,4 @@ function derrota(elemento){
     elemento.querySelector(".pop-up").textContent = "Reiniciar";
     elemento.showModal();
 }
+

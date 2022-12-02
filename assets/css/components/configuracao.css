@@ -42,6 +42,30 @@
     width: 90%;
 }
 
+.config-container--invalido {
+    margin-bottom: 0.5rem;
+}
+
+.config-container--invalido .tela__configuracao-campo-texto {
+    border: 1px solid var(--letras-erradas);
+    border-radius: 7px;
+}
+
+.config-container--invalido .config-textarea {
+    color: var(--letras-erradas);
+}
+
+.config-mensagem-erro {
+    display: none;
+}
+
+.config-container--invalido .config-mensagem-erro {
+    color: var(--letras-erradas);
+    display: block;
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+
 .config-textarea{
     align-self: flex-start;
 }
@@ -51,10 +75,10 @@
     border-bottom: 2px solid var(--gray-500-escuro);
     font-weight: var(--alto);
     outline: none;
-    text-align: start;
+    padding: 1.375rem 0.5rem 0.5rem;
 
-    width: 85%;
-    max-width: 343px;
+    height: 3.25rem;
+    width: 100%;
 }
 
 @media screen and (min-width: 720px) {

@@ -25,15 +25,17 @@
             <button data-button="configura" class="botao botao__configuracao botao--alternativo">adicionar nova Palavra</button>
         </section>
 
-        <section class="tela__configuracao">
+        <from class="tela__configuracao">
             <fieldset class="tela__configuracao-input">
                 <div class="config-container">
-                    <input name="palavra" id="palavra" class="tela__configuracao-campo-texto" placeholder="Digite uma palavra" required>
+                    <input name="palavra" id="palavra" data-valor="palavra" pattern="^(?!.*[- !@#$%^&*_=+^~',])$" class="tela__configuracao-campo-texto" placeholder="Digite uma palavra" required>
                     <label for="palavra" class="config-textarea">Palavra</label>
+                    <span class="config-mensagem-erro">Este campo não está válido</span>
                 </div>
                 <div class="config-container">
-                    <input name="dica" id="dica" class="tela__configuracao-campo-texto" placeholder="De uma dica referente a sua palavra" required>
+                    <input name="dica" id="dica" data-valor="dica" pattern="^(?!.*[- !@#$%^&*_=+^~',])$" class="tela__configuracao-campo-texto" placeholder="De uma dica referente a sua palavra" required>
                     <label for="dica" class="config-textarea">Dica</label>
+                    <span class="config-mensagem-erro">Este campo não está válido</span>
                 </div>
             </fieldset>
             <p>Máx. de 8 letras</p>
@@ -41,7 +43,7 @@
                 <button data-button="salvar" class="botao botao__configuracao--jogar">Salvar e começar</button>
                 <button data-button="voltar" class="botao botao__configuracao--voltar botao--alternativo">Cancelar</button>
             </div>
-        </section>
+        </from>
 
         <section class="tela__jogo">
             <div class="tela--forca-e-erros">

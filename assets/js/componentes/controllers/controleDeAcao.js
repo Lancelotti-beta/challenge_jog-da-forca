@@ -15,7 +15,7 @@ export default function ativaBotaos(botao) {
 const buttons =  {
     jogar: e => jogar(e),
     configura: e => configuracao(e),
-    salvar: e => salvarConfiguracao(e),
+    salvar: (e) => salvarConfiguracao(e),
     voltar: e => voltarAoInicio(e),
     jogarNovamente: e => jogarNovamente(),
     desistir: e => sair(),
@@ -39,6 +39,12 @@ const configuracao = (e) => {
 const salvarConfiguracao = (e) => {
     document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none';
     document.querySelector('.tela__jogo').style.display = 'flex';
+
+    /*
+    * Adicionar funcionalidade para para enviar a palavra
+    * e dica ao array de objetos
+    */
+
     iniciaJogo();
 }
 

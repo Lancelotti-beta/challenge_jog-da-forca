@@ -1,13 +1,21 @@
 import ativaBotaos from "./componentes/controllers/controleDeAcao.js"
+import { validaCampoDeImput } from "./componentes/validation/validaCampoDeInput.js"
 import modulo from "./componentes/utils/valoresIniciais.js"
 import { alfabeto } from "./componentes/utils/caracter.js"
 import { verificaBotao } from "./componentes/validation/validaLetra.js"
 
 const $botoes = document.querySelectorAll('button');
+const $inputs = document.querySelectorAll('.tela__configuracao-campo-texto')
 
 $botoes.forEach((botao) => {
     botao.addEventListener('click', (event) => {
         ativaBotaos(event.target);
+    });
+});
+
+$inputs.forEach((input) => {
+    input.addEventListener('blur', (event) => {
+        validaCampoDeImput(event.target)
     });
 });
 
