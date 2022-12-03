@@ -4,6 +4,7 @@ const $popUp = document.querySelector('dialog');
 
 let valoresInicias = {
     tentativas: 0,
+    palavraSalva: false,
     indiceDaPalavra: Number,
     palavraSecreta: String,
     fimDeJogo: Boolean

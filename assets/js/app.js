@@ -7,6 +7,8 @@ import { verificaBotao } from "./componentes/validation/validaLetra.js"
 const $botoes = document.querySelectorAll('button');
 const $inputs = document.querySelectorAll('.tela__configuracao-campo-texto')
 
+console.log("teste I", modulo.valoresInicias.palavraSalva)
+
 $botoes.forEach((botao) => {
     botao.addEventListener('click', (event) => {
         ativaBotaos(event.target);

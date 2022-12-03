@@ -1,3 +1,4 @@
+import palavra from "../utils/valoresIniciais.js";
 
 export function validaCampoDeImput(input) {
     const tipoDoInput = input.dataset.valor
@@ -5,9 +6,14 @@ export function validaCampoDeImput(input) {
     if (input.validity.valid) {
         input.parentElement.classList.remove('config-container--invalido');
         input.parentElement.querySelector('.config-mensagem-erro').innerHTML = "";
+        input.value = "";
+
+        //palavra.valoresInicias.palavraSalva = true;
     } else {
         input.parentElement.classList.add('config-container--invalido');
         input.parentElement.querySelector('.config-mensagem-erro').innerHTML = mostraMensagemDeErro(tipoDoInput, input);
+
+        //palavra.valoresInicias.palavraSalva = false;
     }
 }
 

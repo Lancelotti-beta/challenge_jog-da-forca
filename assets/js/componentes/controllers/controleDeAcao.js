@@ -7,12 +7,12 @@ import {
 export default function ativaBotaos(botao) {
     let botaoSelecionado = botao.dataset.button;
 
-    if(buttons[botaoSelecionado]){
+    if (buttons[botaoSelecionado]) {
         buttons[botaoSelecionado](botao);
     }
 }
 
-const buttons =  {
+const buttons = {
     jogar: e => jogar(e),
     configura: e => configuracao(e),
     salvar: (e) => salvarConfiguracao(e),
@@ -37,15 +37,18 @@ const configuracao = (e) => {
 
 //sessão da configuração
 const salvarConfiguracao = (e) => {
-    document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none';
-    document.querySelector('.tela__jogo').style.display = 'flex';
+    console.log("teste II", modulo.valoresInicias.palavraSalva)
 
-    /*
-    * Adicionar funcionalidade para para enviar a palavra
-    * e dica ao array de objetos
-    */
+    if (modulo.valoresInicias.palavraSalva) {
+        /*
+        * Adicionar funcionalidade para para enviar a palavra
+        * e dica ao array de objetos
+        */
+       document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none';
+       document.querySelector('.tela__jogo').style.display = 'flex';
+       iniciaJogo();
+    }
 
-    iniciaJogo();
 }
 
 const voltarAoInicio = (e) => {
