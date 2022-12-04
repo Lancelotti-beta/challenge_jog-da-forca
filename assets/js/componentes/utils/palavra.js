@@ -1,4 +1,4 @@
-export let palavras = [
+export const palavras = JSON.parse(localStorage.getItem('novaPalavraSecreta')) || [
     {palavra: 'O pequeno principe', dica: 'O seu reino é um pequeno planeta'}, 
     {palavra: 'A Guerra dos Tronos', dica: 'Dragões são raros nessa Época'},
     {palavra: 'As Brumas de Avalon', dica: 'A espada lhe deu o trono'},

@@ -5,14 +5,11 @@ import { alfabeto } from "./componentes/utils/caracter.js"
 import { verificaBotao } from "./componentes/validation/validaLetra.js"
 
 const $botoes = document.querySelectorAll('button');
-
 $botoes.forEach((botao) => {
     botao.addEventListener('click', (event) => {
         ativaBotaos(event.target);
     });
 });
-
-console.log(modulo.inputs);
 
 modulo.inputs.forEach((input) => {
     input.addEventListener('blur', (event) => {

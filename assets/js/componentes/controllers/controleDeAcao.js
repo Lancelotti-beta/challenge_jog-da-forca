@@ -1,8 +1,7 @@
 import modulo from "../utils/valoresIniciais.js";
 import { palavras } from "../utils/palavra.js";
-import {
-    iniciarJogo
-} from "../process/acoesDoJogo.js";
+import { iniciarJogo } from "../process/acoesDoJogo.js";
+import { adicionaPlavraNaLista } from "../process/adicionaPalavraNaLista.js";
 
 export default function ativaBotaos(botao) {
     let botaoSelecionado = botao.dataset.button;
@@ -41,15 +40,22 @@ const salvarConfiguracao = (e) => {
     let inputDica = modulo.inputs[1];
 
     if (inputPalavra.validity.valid && inputDica.validity.valid) {
-        palavras.push({
-            palavra: inputPalavra.value,
-            dica: inputDica.value
-        })
+        let novaPalavraSecreta = {
+            "palavra": inputPalavra.value,
+            "dica": inputDica.value
+        };
+
+        adicionaPlavraNaLista(novaPalavraSecreta);
         
+        inputPalavra.value = "";
+        inputDica.value = "";
+
         document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none';
         document.querySelector('.tela__jogo').style.display = 'flex';
         iniciarJogo();
     }
+
+    console.log(palavras)
 }
 
 const voltarAoInicio = (e) => {
