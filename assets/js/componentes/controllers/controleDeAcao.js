@@ -1,7 +1,7 @@
 import modulo from "../utils/valoresIniciais.js";
+import { palavras } from "../utils/palavra.js";
 import {
-    iniciaJogo,
-    resetaJogo
+    iniciarJogo
 } from "../process/acoesDoJogo.js";
 
 export default function ativaBotaos(botao) {
@@ -27,7 +27,7 @@ const buttons = {
 const jogar = (e) => {
     e.parentElement.style.display = 'none';
     document.querySelector('.tela__jogo').style.display = 'flex';
-    iniciaJogo();
+    iniciarJogo();
 }
 
 const configuracao = (e) => {
@@ -37,18 +37,19 @@ const configuracao = (e) => {
 
 //sessão da configuração
 const salvarConfiguracao = (e) => {
-    console.log("teste II", modulo.valoresInicias.palavraSalva)
+    let inputPalavra = modulo.inputs[0];
+    let inputDica = modulo.inputs[1];
 
-    if (modulo.valoresInicias.palavraSalva) {
-        /*
-        * Adicionar funcionalidade para para enviar a palavra
-        * e dica ao array de objetos
-        */
-       document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none';
-       document.querySelector('.tela__jogo').style.display = 'flex';
-       iniciaJogo();
+    if (inputPalavra.validity.valid && inputDica.validity.valid) {
+        palavras.push({
+            palavra: inputPalavra.value,
+            dica: inputDica.value
+        })
+        
+        document.querySelector('.tela__configuracao-container').parentElement.style.display = 'none';
+        document.querySelector('.tela__jogo').style.display = 'flex';
+        iniciarJogo();
     }
-
 }
 
 const voltarAoInicio = (e) => {
@@ -58,19 +59,17 @@ const voltarAoInicio = (e) => {
 
 // sessão do Jogo
 const jogarNovamente = () => {
-    resetaJogo();
+    iniciarJogo();
 }
 
 const sair = () => {
     document.querySelector('.tela__jogo-container').parentElement.style.display = 'none';
     document.querySelector('.tela__inicio').style.display = 'flex';
-    resetaJogo();
+    iniciarJogo();
 }
 
 //daiog - popUp caso percam 
 const fecharDialog = () => {
-    resetaJogo();
+    iniciarJogo();
     modulo.popUp.close();
 }
-
-

@@ -20,19 +20,7 @@ function sortearPalavra(array) {
     return Math.floor(Math.random() * array.length)
 }
 
-export const iniciaJogo = () => {
-    modulo.valoresInicias.fimDeJogo = false;
-    modulo.valoresInicias.indiceDaPalavra = sortearPalavra(palavras);
-    modulo.valoresInicias.palavraSecreta = retiraCaracter(palavras[modulo.valoresInicias.indiceDaPalavra]);
-
-    desenharCanvas()
-
-    ocultaPalavra(modulo.valoresInicias.palavraSecreta, palavras[modulo.valoresInicias.indiceDaPalavra]);
-    
-    document.querySelector(".tela--erros").innerHTML = '';
-}
-
-export const resetaJogo = () => {
+export const iniciarJogo = () => {
     modulo.valoresInicias.fimDeJogo = false;
     modulo.valoresInicias.tentativas = 0;
 

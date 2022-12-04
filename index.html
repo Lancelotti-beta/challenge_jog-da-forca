@@ -28,17 +28,17 @@
         <from class="tela__configuracao">
             <fieldset class="tela__configuracao-input">
                 <div class="config-container">
-                    <input  class="tela__configuracao-campo-texto" name="palavra" id="palavra" data-valor="palavra" type="text" pattern="^(?!.*[-!@#$%^&*_=+^~',])$" placeholder="Digite uma palavra" required>
+                    <input  class="tela__configuracao-campo-texto input-palavra" name="palavra" id="palavra" data-valor="palavra" type="text" pattern="([A-Za-z])(?!.*[-!@#$%^&*_=+^~',])(?!.*[0-9]).{3,20}" title="A palavra não pode conter caracteres especial, numeros ou quebras de linha e ter de 3 até 20 letras." placeholder="Digite uma palavra" required>
                     <label class="config-textarea" for="palavra">Palavra</label>
                     <span class="config-mensagem-erro">Este campo não está válido</span>
                 </div>
                 <div class="config-container">
-                    <input  class="tela__configuracao-campo-texto" name="dica" id="dica" data-valor="dica" type="text" pattern="^(?!.*[-!@#$%^&*_=+^~',])$" placeholder="De uma dica referente a sua palavra" required>
+                    <input  class="tela__configuracao-campo-texto input-dica" name="dica" id="dica" data-valor="dica" type="text" placeholder="De uma dica referente a sua palavra" required>
                     <label class="config-textarea" for="dica">Dica</label>
                     <span class="config-mensagem-erro">Este campo não está válido</span>
                 </div>
             </fieldset>
-            <p>Máx. de 8 letras</p>
+            <p>Máx. de 20 letras e sem caracters especial ou numeros</p>
             <div class="tela__configuracao-container">
                 <button data-button="salvar" class="botao botao__configuracao--jogar">Salvar e começar</button>
                 <button data-button="voltar" class="botao botao__configuracao--voltar botao--alternativo">Cancelar</button>

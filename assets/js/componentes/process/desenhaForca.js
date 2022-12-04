@@ -168,14 +168,5 @@ function desenharCanvas(erros){
     requestAnimationFrame(desenharCanvas);
 }
 
-export {
-    cabeca,
-    tronco,
-    bracoDireito,
-    bracoEsquerdo,
-    pernaDireita,
-    pernaEsquerda
-}
-
 export default desenharCanvas
 

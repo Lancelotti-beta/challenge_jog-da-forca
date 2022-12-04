@@ -1,4 +1,3 @@
-import palavra from "../utils/valoresIniciais.js";
 
 export function validaCampoDeImput(input) {
     const tipoDoInput = input.dataset.valor
@@ -6,14 +5,11 @@ export function validaCampoDeImput(input) {
     if (input.validity.valid) {
         input.parentElement.classList.remove('config-container--invalido');
         input.parentElement.querySelector('.config-mensagem-erro').innerHTML = "";
-        input.value = "";
 
-        //palavra.valoresInicias.palavraSalva = true;
     } else {
         input.parentElement.classList.add('config-container--invalido');
         input.parentElement.querySelector('.config-mensagem-erro').innerHTML = mostraMensagemDeErro(tipoDoInput, input);
 
-        //palavra.valoresInicias.palavraSalva = false;
     }
 }
 
@@ -25,11 +21,10 @@ const vadidaErro = [
 const mensagemDeErro = {
     palavra: {
         valueMissing: `O campo de estado não pode estar vazio.`,
-        patternMismatch: `A palavra não pode conter caracteres especias como @,#& ou semelhante`
+        patternMismatch: `A palavra não pode conter caracteres especias como @,#&, ou semelhante, e numeros`
     },
     dica: {
-        valueMissing: `O campo de Preço não pode estar Vazio!`,
-        patternMismatch: `A dica não pode conter caracteres especias como @,#& ou semelhante`
+        valueMissing: `O campo de Preço não pode estar Vazio!`
     }
 };
 
