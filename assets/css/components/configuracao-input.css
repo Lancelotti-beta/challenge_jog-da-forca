@@ -1,0 +1,81 @@
+.tela__configuracao-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    width: 80%;
+}
+
+.config-container {
+    background: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 90%;
+}
+
+.config-container--invalido {
+    margin-bottom: 0.5rem;
+}
+
+.config-container--invalido .tela__configuracao-campo-texto {
+    border: 1px solid var(--letras-erradas);
+    border-radius: 7px;
+}
+
+.config-container--invalido .config-textarea {
+    color: var(--letras-erradas);
+}
+
+.config-mensagem-erro {
+    display: none;
+}
+
+.config-container--invalido .config-mensagem-erro {
+    color: var(--letras-erradas);
+    font-size: 1rem;
+    display: block;
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.config-textarea{
+    align-self: flex-start;
+}
+
+.tela__configuracao-campo-texto {
+    background: none;
+    border-bottom: 2px solid var(--gray-500-escuro);
+    color: var(--darkBlue-400-escuro);
+
+    font-size: 1rem;
+    font-weight: var(--alto);
+    outline: none;
+    padding: 1.375rem 0.5rem 0.5rem;
+
+    height: 3.25rem;
+    width: 100%;
+}
+
+@media screen and (min-width: 720px) {
+    .config-container--invalido .config-mensagem-erro {
+        font-size: 1.25rem;
+    }
+
+    .tela__configuracao-campo-texto {
+        font-size: 1.25rem;
+        max-width: 683px;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .tela__configuracao-campo-texto {
+        font-size: 1.75rem;
+        max-width: 1024px;
+    }
+}
