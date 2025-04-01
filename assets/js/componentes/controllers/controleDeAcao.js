@@ -1,7 +1,7 @@
 import modulo from "../utils/valoresIniciais.js";
 import { palavras } from "../utils/palavra.js";
 import { iniciarJogo } from "../process/acoesDoJogo.js";
-import { adicionaPlavraNaLista } from "../process/adicionaPalavraNaLista.js";
+import { adicionaPalavraNaLista } from "../process/adicionaPalavraNaLista.js";
 
 export default function ativaBotaos(botao) {
     let botaoSelecionado = botao.dataset.button;
