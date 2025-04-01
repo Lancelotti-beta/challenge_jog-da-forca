@@ -45,7 +45,7 @@ const salvarConfiguracao = (e) => {
             "dica": inputDica.value
         };
 
-        adicionaPlavraNaLista(novaPalavraSecreta);
+        adicionaPalavraNaLista(novaPalavraSecreta);
         
         inputPalavra.value = "";
         inputDica.value = "";
